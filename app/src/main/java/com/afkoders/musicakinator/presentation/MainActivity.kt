@@ -1,7 +1,8 @@
-package com.afkoders.musicakinator
+package com.afkoders.musicakinator.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.afkoders.musicakinator.R
 
 class MainActivity : AppCompatActivity() {
 
