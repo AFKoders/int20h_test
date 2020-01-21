@@ -1,7 +1,7 @@
-package com.afkoders.musicakinator.dagger.qualifiers
+package com.afkoders.musicakinator.di.qualifiers
 
 import javax.inject.Qualifier
 
 @Qualifier
 @kotlin.annotation.Retention(AnnotationRetention.RUNTIME)
-annotation class SearchQualifier
+annotation class PlayerQualifier

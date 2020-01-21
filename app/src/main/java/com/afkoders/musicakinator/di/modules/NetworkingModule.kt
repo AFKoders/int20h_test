@@ -1,7 +1,7 @@
-package com.afkoders.musicakinator.dagger.modules
+package com.afkoders.musicakinator.di.modules
 
-import com.afkoders.musicakinator.dagger.qualifiers.PlayerQualifier
-import com.afkoders.musicakinator.dagger.qualifiers.SearchQualifier
+import com.afkoders.musicakinator.di.qualifiers.PlayerQualifier
+import com.afkoders.musicakinator.di.qualifiers.SearchQualifier
 import com.afkoders.musicakinator.utils.NullOrEmptyConverterFactory
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
