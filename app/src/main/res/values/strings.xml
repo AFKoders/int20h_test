@@ -1,3 +1,15 @@
 <resources>
-    <string name="app_name">MusicAkinator</string>
+    <string name="app_name">Music Akinator</string>
+
+    <string name="action_yes">Yes</string>
+    <string name="action_no">No</string>
+    <string name="action_try_again">Try again?</string>
+
+    <string name="display_text_success">TODO</string>
+    <string name="display_text_failure">TODO</string>
+
+    <string name="tab_song">Song</string>
+    <string name="tab_lyrics">Lyrics</string>
+
+    <string name="preview_recent_results">Recent results</string>
 </resources>

@@ -6,9 +6,17 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- TODO: add additional parameters on demand for each custom style -->
+
     <style name="TextView.Title" parent="@style/Widget.AppCompat.TextView">
         <item name="android:textSize">@dimen/title_font_size</item>
         <item name="android:textColor">@color/colorTitleText</item>
+    </style>
+
+    <style name="TextView.Toolbar" parent="@style/Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/toolbar_font_size</item>
+        <item name="android:textColor">@color/colorTitleText</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="TextView.Body" parent="@style/Widget.AppCompat.TextView">
@@ -17,15 +25,15 @@
     </style>
 
     <style name="Button" parent="@style/Widget.MaterialComponents.Button">
-
+        <item name="android:textSize">@dimen/title_font_size</item>
     </style>
 
     <style name="EditText" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
+        <item name="android:textSize">@dimen/basic_font_size</item>
     </style>
 
-    <style name="Toolbar" parent="@style/Widget.AppCompat.Toolbar">
-
+    <style name="ImageView">
+        <item name="android:contentDescription">@null</item>
     </style>
 
 </resources>
