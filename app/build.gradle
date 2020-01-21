@@ -34,6 +34,8 @@ android {
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
         project.ext.set("archivesBaseName", "AFKoders-Music-Akinator-v" + versionName);
+
+        buildConfigField("String", "LYRICS_SEARCH", "\"https://api.audd.io/findLyrics/?q=\"")
     }
 
     dexOptions {
