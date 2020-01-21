@@ -26,14 +26,17 @@ android {
     buildToolsVersion "29.0.2"
 
     defaultConfig {
-        applicationId "com.afkoders.musicakinator"
         minSdkVersion 21
         targetSdkVersion 29
+
         versionCode 1
         versionName "1.0.0"
+        applicationId "com.afkoders.musicakinator"
+
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
-        project.ext.set("archivesBaseName", "AFKoders-Music-Akinator-v" + versionName);
+
+        project.ext.set("archivesBaseName", "AFKoders-Music-Akinator-v" + versionName)
     }
 
     dexOptions {
@@ -51,6 +54,7 @@ android {
             ext.alwaysUpdateBuildId = false
             debuggable true
         }
+
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -65,9 +69,9 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.1.0'
 
     // Android
