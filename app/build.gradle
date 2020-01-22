@@ -37,7 +37,7 @@ android {
         multiDexEnabled true
         project.ext.set("archivesBaseName", "AFKoders-Music-Akinator-v" + versionName);
 
-        buildConfigField("String", "LYRICS_SEARCH", "\"https://api.audd.io/findLyrics/?q=\"")
+        buildConfigField("String", "AUDD_IO_HOST", "\"https://api.audd.io\"")
     }
 
     dexOptions {

@@ -1,4 +1,4 @@
-package com.afkoders.musicakinator.data.text_recognition.models
+package com.afkoders.musicakinator.data.models
 
 import com.google.gson.annotations.SerializedName
 

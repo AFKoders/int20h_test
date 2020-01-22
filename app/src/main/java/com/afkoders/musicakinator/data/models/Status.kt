@@ -1,4 +1,4 @@
-package com.afkoders.musicakinator.data
+package com.afkoders.musicakinator.data.models
 
 import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
