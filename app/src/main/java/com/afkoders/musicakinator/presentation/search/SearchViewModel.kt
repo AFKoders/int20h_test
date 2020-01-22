@@ -1,4 +1,4 @@
-package com.afkoders.musicakinator.presentation.ask_me
+package com.afkoders.musicakinator.presentation.search
 
 import androidx.lifecycle.ViewModel
 
@@ -6,6 +6,6 @@ import androidx.lifecycle.ViewModel
  * Created by Kalevych Oleksandr on 2020-01-22.
  */
 
-class AskMeViewModel : ViewModel(){
+class SearchViewModel : ViewModel(){
 
 }

@@ -20,7 +20,4 @@ abstract class ApplicationModule {
     @Binds
     @ApplicationContext
     abstract fun bindContext(akinatorApplication: AkinatorApplication): Context
-
-    @Binds
-    abstract fun bindBaseActivity(baseActivity: BaseActivity): DaggerAppCompatActivity
 }

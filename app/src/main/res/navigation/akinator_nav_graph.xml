@@ -8,8 +8,8 @@
 
     <fragment
         android:id="@+id/fragmentAskMe"
-        android:name="com.afkoders.musicakinator.presentation.ask_me.AskMeFragment"
-        tools:layout="@layout/fragment_ask_me"
+        android:name="com.afkoders.musicakinator.presentation.search.SearchFragment"
+        tools:layout="@layout/fragment_search"
         android:label="FragmentAskMe" >
         <action
             android:id="@+id/navigateToFoundSong"
@@ -20,8 +20,8 @@
 
     <fragment
         android:id="@+id/fragmentFoundSong"
-        android:name="com.afkoders.musicakinator.presentation.ask_me.AskMeFragment"
-        tools:layout="@layout/fragment_ask_me"
+        android:name="com.afkoders.musicakinator.presentation.search.SearchFragment"
+        tools:layout="@layout/fragment_search"
         android:label="FragmentAskMe">
     <action
         android:id="@+id/navigateToGameResult"
@@ -32,8 +32,8 @@
 
     <fragment
         android:id="@+id/fragmentGameResult"
-        android:name="com.afkoders.musicakinator.presentation.ask_me.AskMeFragment"
-        tools:layout="@layout/fragment_ask_me"
+        android:name="com.afkoders.musicakinator.presentation.search.SearchFragment"
+        tools:layout="@layout/fragment_search"
         android:label="FragmentAskMe" />
 
 </navigation>
