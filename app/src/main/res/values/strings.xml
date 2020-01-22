@@ -28,7 +28,7 @@
 
     <!-- Failure screen -->
     <string name="title_failure">OOH…</string>
-    <string name="label_failure">I don\'t now your song</string>
+    <string name="label_failure">I don\'t know your song</string>
     <string name="interaction_failure">It must be very special</string>
 
     <!-- Retry screen -->
