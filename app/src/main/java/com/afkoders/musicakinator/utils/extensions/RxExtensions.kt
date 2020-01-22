@@ -1,4 +1,4 @@
-package com.afkoders.musicakinator.utils
+package com.afkoders.musicakinator.utils.extensions
 
 import io.reactivex.Observable
 import io.reactivex.Observer

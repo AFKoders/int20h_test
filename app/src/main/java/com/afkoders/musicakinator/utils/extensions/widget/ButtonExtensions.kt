@@ -1,4 +1,4 @@
-package com.afkoders.musicakinator.utils
+package com.afkoders.musicakinator.utils.extensions.widget
 
 import android.widget.Button
 

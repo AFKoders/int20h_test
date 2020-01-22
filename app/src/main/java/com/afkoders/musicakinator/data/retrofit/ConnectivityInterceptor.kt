@@ -2,7 +2,7 @@ package com.afkoders.musicakinator.data.retrofit
 
 import android.content.Context
 import com.afkoders.musicakinator.data.exception.NoConnectivityException
-import com.afkoders.musicakinator.utils.isNetworkConnected
+import com.afkoders.musicakinator.utils.extensions.isNetworkConnected
 import okhttp3.Interceptor
 import okhttp3.Response
 import java.io.IOException
