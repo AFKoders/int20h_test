@@ -35,8 +35,9 @@ android {
 
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
+        project.ext.set("archivesBaseName", "AFKoders-Music-Akinator-v" + versionName);
 
-        project.ext.set("archivesBaseName", "AFKoders-Music-Akinator-v" + versionName)
+        buildConfigField("String", "AUDD_IO_HOST", "\"https://api.audd.io\"")
     }
 
     dexOptions {
