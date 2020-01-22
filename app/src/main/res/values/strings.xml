@@ -33,6 +33,9 @@
     <!-- Retry screen -->
     <string name="title_retry">OOH…</string>
     <string name="label_retry">I made a mistake</string>
-    <string name="interaction_retry">BUT he\'s got %d more tries</string>
+    <plurals name="interaction_retry">
+        <item quantity="one">BUT I got %d more try</item>
+        <item quantity="other">BUT I got %d more tries</item>
+    </plurals>
 
 </resources>
