@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#2449F2</color>
+    <color name="colorPrimaryDark">#062BD4</color>
+    <color name="colorAccent">#FFFFFF</color>
+
+    <color name="primaryTextColor">#FFFFFF</color>
+    <color name="secondaryTextColor">#6A8FFF</color>
+    <color name="inputTextColor">#82829C</color>
+    <color name="placeholderTextColor">#C9C9D5</color>
+
+    <color name="ctaPrimaryTextColor">#2449F2</color>
+    <color name="ctaSecondaryTextColor">#6A8FFF</color>
+    <color name="ctaPrimaryBackgroundColor">#FFFFFF</color>
+    <color name="ctaSecondaryBackgroundColor">#062BD4</color>
 </resources>

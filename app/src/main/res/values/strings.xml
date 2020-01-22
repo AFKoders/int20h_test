@@ -1,3 +1,41 @@
 <resources>
-    <string name="app_name">MusicAkinator</string>
+    <string name="app_name" translatable="false">Music Akinator</string>
+
+    <string name="action_yes">Yes</string>
+    <string name="action_no">No</string>
+    <string name="action_try_again">Give one more try</string>
+    <string name="action_back_to_search">Back to the search</string>
+
+    <!-- Search screen -->
+    <string name="label_ask_me">Ask me</string>
+    <string name="label_whos_singing">Who’s singing?</string>
+    <string name="placeholder_whos_singing">Tap to enter text of the song</string>
+
+    <!-- Loading screen -->
+    <string name="label_try_to_find">Try to find</string>
+    <string name="label_the_best_results">The best\nresults</string>
+
+    <!-- Search Result screen -->
+    <string name="label_preview_recent_results">Recent results</string>
+    <string name="tab_song">Song</string>
+    <string name="tab_lyrics">Lyrics</string>
+    <string name="label_is_it_right_song">Is this right song?</string>
+
+    <!-- Success screen -->
+    <string name="title_success">WOO HOO!</string>
+    <string name="label_success">I was exactly right</string>
+
+    <!-- Failure screen -->
+    <string name="title_failure">OOOPS…</string>
+    <string name="label_failure">I don’t now your song</string>
+    <string name="interaction_failure">It must be very special</string>
+
+    <!-- Retry screen -->
+    <string name="title_retry">OOH…</string>
+    <string name="label_retry">I made a mistake</string>
+    <plurals name="interaction_retry">
+        <item quantity="one">BUT I got %d more try</item>
+        <item quantity="other">BUT I got %d more tries</item>
+    </plurals>
+
 </resources>

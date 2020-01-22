@@ -1,11 +1,72 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="TextView.Primary.Text" parent="@style/Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/primary_text_size</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:fontFamily">@font/druk_wide_bold</item>
+    </style>
+
+    <style name="TextView.Secondary.Text" parent="@style/Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/secondary_text_size</item>
+        <item name="android:textColor">@color/secondaryTextColor</item>
+        <item name="android:fontFamily">@font/maven_pro_bold</item>
+    </style>
+
+    <style name="TextView.Lyrics.Text" parent="@style/Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/lyrics_text_size</item>
+        <item name="android:textColor">@color/secondaryTextColor</item>
+        <item name="android:fontFamily">@font/maven_pro_regular</item>
+    </style>
+
+    <style name="Tab.Text" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/tab_text_size</item>
+        <item name="android:textColor">@color/secondaryTextColor</item>
+        <item name="android:fontFamily">@font/maven_pro_bold</item>
+    </style>
+
+    <style name="Button.Primary" parent="@style/Widget.MaterialComponents.Button">
+        <item name="android:textSize">@dimen/cta_text_size</item>
+        <item name="android:fontFamily">@font/maven_pro_bold</item>
+        <item name="android:textColor">@color/ctaPrimaryTextColor</item>
+        <item name="android:colorBackground">@color/ctaPrimaryBackgroundColor</item>
+        <item name="cornerRadius">@dimen/cta_corner_radius</item>
+    </style>
+
+    <style name="Button.Secondary" parent="@style/Widget.MaterialComponents.Button">
+        <item name="android:textSize">@dimen/cta_text_size</item>
+        <item name="android:fontFamily">@font/maven_pro_bold</item>
+        <item name="android:textColor">@color/ctaSecondaryTextColor</item>
+        <item name="android:colorBackground">@color/ctaSecondaryBackgroundColor</item>
+        <item name="cornerRadius">@dimen/cta_corner_radius</item>
+    </style>
+
+    <style name="EditText" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:textSize">@dimen/secondary_text_size</item>
+        <item name="android:fontFamily">@font/maven_pro_bold</item>
+        <item name="android:textColor">@color/inputTextColor</item>
+        <item name="boxBackgroundColor">@color/colorAccent</item>
+        <item name="boxStrokeColor">@color/colorAccent</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/input_corner_radius</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/input_corner_radius</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/input_corner_radius</item>
+        <item name="boxCornerRadiusTopStart">@dimen/input_corner_radius</item>
+        <item name="hintTextAppearance">@style/EditText.Hint.Appearance</item>
+    </style>
+
+    <style name="EditText.Hint.Appearance" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/secondary_text_size</item>
+        <item name="android:fontFamily">@font/maven_pro_bold</item>
+        <item name="android:textColor">@color/placeholderTextColor</item>
+    </style>
+
+    <style name="ImageView">
+        <item name="android:contentDescription">@null</item>
     </style>
 
 </resources>
