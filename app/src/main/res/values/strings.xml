@@ -28,9 +28,11 @@
     <!-- Failure screen -->
     <string name="title_failure">OOOPS…</string>
     <string name="label_failure">I don’t now your song</string>
+    <string name="interaction_failure">It must be very special</string>
 
     <!-- Retry screen -->
     <string name="title_retry">OOH…</string>
     <string name="label_retry">I made a mistake</string>
+    <string name="interaction_retry">BUT he\'s got %d more tries</string>
 
 </resources>
