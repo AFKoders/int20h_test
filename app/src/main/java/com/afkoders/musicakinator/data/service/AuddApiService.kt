@@ -7,5 +7,8 @@ import retrofit2.http.*
 
 interface AuddApiService {
     @GET("/findLyrics/")
-    fun findByLyrics(@Query("q") lyrics: String): Single<FindByLyricsResponse>
+    fun findByLyrics(
+        @Query("q") lyrics: String,
+        @Query("api_token") apiToken: String
+    ): Single<FindByLyricsResponse>
 }
