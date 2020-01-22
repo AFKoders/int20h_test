@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_yes">Да</string>
+    <string name="action_no">Нет</string>
+    <string name="action_try_again">Дать еще одну попытку</string>
+    <string name="action_back_to_search">Вернуться к поиску</string>
+
+    <!-- Search screen -->
+    <string name="label_ask_me">Спроси меня</string>
+    <string name="label_whos_singing">Кто это поет?</string>
+    <string name="placeholder_whos_singing">Нажмите, чтобы ввести текст песни</string>
+
+    <!-- Loading screen -->
+    <string name="label_try_to_find">Пытаюсь найти</string>
+    <string name="label_the_best_results">лучшие\nрезультаты</string>
+
+    <!-- Search Result screen -->
+    <string name="label_preview_recent_results">Последние результаты</string>
+    <string name="tab_song">Песня</string>
+    <string name="tab_lyrics">Лирика</string>
+    <string name="label_is_it_right_song">Эти правильная песня?</string>
+
+    <!-- Success screen -->
+    <string name="title_success">ЕХЕЙ!</string>
+    <string name="label_success">Я был абсолютно прав</string>
+
+    <!-- Failure screen -->
+    <string name="title_failure">Оох…</string>
+    <string name="label_failure">Я не знаю вашей песни</string>
+    <string name="interaction_failure">Она должно быть очень необычная</string>
+
+    <!-- Retry screen -->
+    <string name="title_retry">Уупс…</string>
+    <string name="label_retry">Я ошибся</string>
+    <plurals name="interaction_retry">
+        <item quantity="one">Но у меня еще %d с попытка</item>
+        <item quantity="few">Но у меня еще %d с попытки</item>
+        <item quantity="many">Но у меня еще %d с попыток</item>
+    </plurals>
+</resources>

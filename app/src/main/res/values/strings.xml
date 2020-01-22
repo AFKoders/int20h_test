@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" translatable="false">Music Akinator</string>
 
@@ -26,16 +27,15 @@
     <string name="label_success">I was exactly right</string>
 
     <!-- Failure screen -->
-    <string name="title_failure">OOOPS…</string>
-    <string name="label_failure">I don’t now your song</string>
+    <string name="title_failure">OOH…</string>
+    <string name="label_failure">I don\'t now your song</string>
     <string name="interaction_failure">It must be very special</string>
 
     <!-- Retry screen -->
-    <string name="title_retry">OOH…</string>
+    <string name="title_retry">OOOPS…</string>
     <string name="label_retry">I made a mistake</string>
     <plurals name="interaction_retry">
-        <item quantity="one">BUT I got %d more try</item>
-        <item quantity="other">BUT I got %d more tries</item>
+        <item quantity="one">BUT I have %d more try</item>
+        <item quantity="other">BUT I have %d more tries</item>
     </plurals>
-
 </resources>
