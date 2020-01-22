@@ -4,13 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/akinator_nav_graph"
-    app:startDestination="@id/fragmentAskMe">
+    app:startDestination="@id/fragmentFoundSong">
 
     <fragment
-        android:id="@+id/fragmentAskMe"
+        android:id="@+id/fragmentSearch"
         android:name="com.afkoders.musicakinator.presentation.search.SearchFragment"
-        tools:layout="@layout/fragment_search"
-        android:label="FragmentAskMe" >
+        android:label="FragmentSearch"
+        tools:layout="@layout/fragment_search">
         <action
             android:id="@+id/navigateToFoundSong"
             app:destination="@id/fragmentFoundSong"
@@ -20,21 +20,21 @@
 
     <fragment
         android:id="@+id/fragmentFoundSong"
-        android:name="com.afkoders.musicakinator.presentation.search.SearchFragment"
-        tools:layout="@layout/fragment_search"
-        android:label="FragmentAskMe">
-    <action
-        android:id="@+id/navigateToGameResult"
-        app:destination="@id/fragmentGameResult"
-        app:enterAnim="@anim/enter_from_right"
-        app:popExitAnim="@anim/exit_to_right" />
+        android:name="com.afkoders.musicakinator.presentation.found_song.FoundSongFragment"
+        android:label="FragmentFoundSong"
+        tools:layout="@layout/fragment_found_song">
+        <action
+            android:id="@+id/navigateToAkinatorWon"
+            app:destination="@id/fragmentAkinatorWon"
+            app:enterAnim="@anim/enter_from_right"
+            app:popExitAnim="@anim/exit_to_right" />
     </fragment>
 
     <fragment
-        android:id="@+id/fragmentGameResult"
-        android:name="com.afkoders.musicakinator.presentation.search.SearchFragment"
-        tools:layout="@layout/fragment_search"
-        android:label="FragmentAskMe" />
+        android:id="@+id/fragmentAkinatorWon"
+        android:name="com.afkoders.musicakinator.presentation.akinator_won.AkinatorWonFragment"
+        android:label="FragmentAkinatorWon"
+        tools:layout="@layout/fragment_akinator_won" />
 
 </navigation>
 

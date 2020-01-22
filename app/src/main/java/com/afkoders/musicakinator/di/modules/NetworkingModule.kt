@@ -3,10 +3,7 @@ package com.afkoders.musicakinator.di.modules
 import android.content.Context
 import com.afkoders.musicakinator.data.retrofit.ConnectivityInterceptor
 import com.afkoders.musicakinator.di.qualifiers.ApplicationContext
-import com.afkoders.musicakinator.di.qualifiers.PlayerQualifier
-import com.afkoders.musicakinator.di.qualifiers.SearchQualifier
 import com.afkoders.musicakinator.di.scope.ApplicationScope
-import com.afkoders.musicakinator.utils.NullOrEmptyConverterFactory
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.readystatesoftware.chuck.ChuckInterceptor
@@ -14,9 +11,6 @@ import dagger.Module
 import dagger.Provides
 import okhttp3.Cache
 import okhttp3.OkHttpClient
-import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
