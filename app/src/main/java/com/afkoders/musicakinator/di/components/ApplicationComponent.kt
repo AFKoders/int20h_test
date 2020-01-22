@@ -6,6 +6,7 @@ import com.afkoders.musicakinator.di.modules.ApplicationModule
 import com.afkoders.musicakinator.di.modules.NetworkingModule
 import com.afkoders.musicakinator.di.modules.RxModule
 import com.afkoders.musicakinator.di.scope.ApplicationScope
+import com.afkoders.musicakinator.presentation.ViewModelModule
 import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
@@ -17,6 +18,7 @@ import dagger.android.support.AndroidSupportInjectionModule
         ApplicationModule::class,
         RxModule::class,
         RepositoryModule::class,
+        ViewModelModule::class,
         NetworkingModule::class]
 )
 interface ApplicationComponent : AndroidInjector<AkinatorApplication> {

@@ -19,8 +19,4 @@ interface MainActivityModule {
     @ActivityContext
     @Binds
     fun bindActivityContext(mainActivity: MainActivity): Context
-
-    /*@Binds
-    @ActivityScope
-    fun bindMainActivity(mainActivity: MainActivity): DaggerAppCompatActivity*/
 }

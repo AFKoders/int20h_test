@@ -13,7 +13,6 @@ import okhttp3.Cache
 import okhttp3.OkHttpClient
 import java.io.File
 import java.util.concurrent.TimeUnit
-import javax.inject.Singleton
 
 @Module
 class NetworkingModule {
@@ -26,7 +25,7 @@ class NetworkingModule {
     }
 
     @Provides
-    @Singleton
+    @ApplicationScope
     fun provideOkHttpCache(cacheFile: File) = Cache(cacheFile, CACHE_SIZE)
 
     @Provides
@@ -48,15 +47,11 @@ class NetworkingModule {
 
     @Provides
     @ApplicationScope
-    fun provideCache(cacheFile: File): Cache = Cache(cacheFile, CACHE_SIZE)
-
-    @Provides
-    @ApplicationScope
     fun provideOkHttpClient(
         connectivityInterceptor: ConnectivityInterceptor,
         chuckInterceptor: ChuckInterceptor,
-        cache: Cache?
-    ): OkHttpClient? {
+        cache: Cache
+    ): OkHttpClient {
         return OkHttpClient.Builder()
             .addInterceptor(connectivityInterceptor)
             .addInterceptor(chuckInterceptor)
