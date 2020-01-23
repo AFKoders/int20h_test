@@ -16,7 +16,7 @@ import dagger.android.ContributesAndroidInjector
 @Module
 interface MainActivityModule {
     @FragmentScope
-    @ContributesAndroidInjector/*(modules = [FoundSongModule::class])*/
+    @ContributesAndroidInjector
     fun foundSongFragment(): FoundSongFragment?
 
     @FragmentScope
@@ -34,8 +34,6 @@ interface MainActivityModule {
     @FragmentScope
     @ContributesAndroidInjector
     fun searchFragment(): SearchFragment?
-
-    // TODO add other fragments
 
     @ActivityContext
     @Binds
