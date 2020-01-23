@@ -4,6 +4,9 @@ import android.content.Context
 import com.afkoders.musicakinator.di.qualifiers.ActivityContext
 import com.afkoders.musicakinator.di.scope.FragmentScope
 import com.afkoders.musicakinator.presentation.found_song.FoundSongFragment
+import com.afkoders.musicakinator.presentation.interation_with_akinator.failure.FailureFragment
+import com.afkoders.musicakinator.presentation.interation_with_akinator.retry.RetryFragment
+import com.afkoders.musicakinator.presentation.interation_with_akinator.success.SuccessFragment
 import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -13,6 +16,18 @@ interface MainActivityModule {
     @FragmentScope
     @ContributesAndroidInjector/*(modules = [FoundSongModule::class])*/
     fun foundSongFragment(): FoundSongFragment?
+
+    @FragmentScope
+    @ContributesAndroidInjector
+    fun successFragment(): SuccessFragment?
+
+    @FragmentScope
+    @ContributesAndroidInjector
+    fun retryFragment(): RetryFragment?
+
+    @FragmentScope
+    @ContributesAndroidInjector
+    fun failureFragment(): FailureFragment?
 
     // TODO add other fragments
 

@@ -15,11 +15,11 @@ import javax.inject.Inject
 
 class FoundSongViewModel @Inject constructor(
     private val auddRepository: AuddRepository,
-    private @SchedulerUI val schedulerUI: Scheduler,
-    private @SchedulerIO val schedulerIO: Scheduler
+    @SchedulerUI private val schedulerUI: Scheduler,
+    @SchedulerIO private val schedulerIO: Scheduler
 ) : ViewModel() {
     fun search(): Single<List<Song>> = auddRepository
-            .findSongsByLyrics("jingle all the way all was fine it is to")
-            .subscribeOn(schedulerIO)
-            .observeOn(schedulerUI)
+        .findSongsByLyrics("jingle all the way all was fine it is to")
+        .subscribeOn(schedulerIO)
+        .observeOn(schedulerUI)
 }
