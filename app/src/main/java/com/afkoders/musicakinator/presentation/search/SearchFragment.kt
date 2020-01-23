@@ -24,6 +24,10 @@ import kotlinx.android.synthetic.main.fragment_search.*
       var bundle = bundleOf("lyrics" to typeSongEditText.text.toString())
       findNavController().navigate(R.id.navigateToFoundSong, bundle)
   }
+
+     ivHistory.setOnClickListener {
+         findNavController().navigate(R.id.navigateToHistory)
+     }
  }
 
  override fun provideViewModel(): SearchViewModel =
