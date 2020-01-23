@@ -40,6 +40,7 @@ android {
         project.ext.set("archivesBaseName", "AFKoders-Music-Akinator-v" + versionName)
 
         buildConfigField("String", "AUDD_IO_HOST", "\"https://api.audd.io\"")
+        buildConfigField("String", "DEEZER_HOST", "\"https://api.deezer.com\"")
         buildConfigField("String", "AUDD_API_TOKEN", CONFIG("AUDD_API_TOKEN"))
     }
 

@@ -7,4 +7,7 @@ import dagger.Module
 interface RepositoryModule {
     @Binds
     fun provideAuddRepository(auddApiRepository: AuddRepositoryImpl): AuddRepository
+
+    @Binds
+    fun provideDeezerRepository(deezerApiRepository: DeezerRepositoryImpl): DeezerRepository
 }

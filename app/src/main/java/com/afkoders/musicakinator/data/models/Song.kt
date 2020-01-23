@@ -13,5 +13,7 @@ data class Song(
     @SerializedName("artist")
     val artist: String,
     @SerializedName("lyrics")
-    val lyrics: String
+    val lyrics: String,
+    @SerializedName("full_title")
+    val fullTitle: String?
 )

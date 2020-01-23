@@ -3,15 +3,15 @@ package com.afkoders.musicakinator.di.modules
 import android.app.Application
 import android.content.Context
 import com.afkoders.musicakinator.AkinatorApplication
-import com.afkoders.musicakinator.data.service.ApiServiceModule
+import com.afkoders.musicakinator.data.service.AuddApiServiceModule
+import com.afkoders.musicakinator.data.service.DeezerApiServiceModule
 import com.afkoders.musicakinator.di.qualifiers.ApplicationContext
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
-import dagger.android.support.DaggerAppCompatActivity
 
 
-@Module(includes = [ActivityBindingModule::class, ApiServiceModule::class])
+@Module(includes = [ActivityBindingModule::class, DeezerApiServiceModule::class, AuddApiServiceModule::class])
 abstract class ApplicationModule {
 
     @Binds
