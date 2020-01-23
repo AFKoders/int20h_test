@@ -40,6 +40,7 @@
         <item name="android:textColor">@color/ctaPrimaryTextColor</item>
         <item name="android:backgroundTint">@color/ctaPrimaryBackgroundColor</item>
         <item name="cornerRadius">@dimen/cta_corner_radius</item>
+        <item name="rippleColor">@color/ctaPrimaryRippleColor</item>
     </style>
 
     <style name="Button.Secondary" parent="@style/Widget.MaterialComponents.Button">
@@ -48,6 +49,7 @@
         <item name="android:textColor">@color/ctaSecondaryTextColor</item>
         <item name="android:backgroundTint">@color/ctaSecondaryBackgroundColor</item>
         <item name="cornerRadius">@dimen/cta_corner_radius</item>
+        <item name="rippleColor">@color/ctaSecondaryRippleColor</item>
     </style>
 
     <style name="EditText" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
