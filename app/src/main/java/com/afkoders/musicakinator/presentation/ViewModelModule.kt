@@ -3,6 +3,7 @@ package com.afkoders.musicakinator.presentation
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.afkoders.musicakinator.presentation.found_song.FoundSongViewModel
+import com.afkoders.musicakinator.presentation.search.SearchViewModel
 import com.afkoders.musicakinator.utils.ViewModelFactory
 import com.afkoders.musicakinator.utils.ViewModelKey
 import dagger.Binds
@@ -18,4 +19,9 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(FoundSongViewModel::class)
     internal abstract fun foundSongViewModel(viewModel: FoundSongViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(SearchViewModel::class)
+    internal abstract fun searchViewModel(viewModel: SearchViewModel): ViewModel
 }

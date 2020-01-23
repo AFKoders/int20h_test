@@ -15,7 +15,7 @@
 
     <!-- Loading screen -->
     <string name="label_try_to_find">Try to find</string>
-    <string name="label_the_best_results">The best\nresults</string>
+    <string name="label_the_best_results">The best\nresults\n. . .</string>
 
     <!-- Search Result screen -->
     <string name="label_preview_recent_results">Recent results</string>

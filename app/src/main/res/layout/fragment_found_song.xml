@@ -3,16 +3,59 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/tvFoundedSongTitle"
+        style="@style/TextView.Primary.Text"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Button"
-        android:textColor="@color/colorPrimary"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/loadingBackgorund"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:background="@color/colorPrimary">
+
+
+        <TextView
+            android:id="@+id/tvAskMe"
+            style="@style/TextView.Secondary.Text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/label_try_to_find"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.35" />
+
+        <TextView
+            android:id="@+id/tvTitleResult"
+            style="@style/TextView.Primary.Text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            android:text="@string/label_the_best_results"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvAskMe" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
