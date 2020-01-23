@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="ivCloseResults" type="id" />
+    <item name="tvTitleResult" type="id" />
+    <item name="tvSubtitleResult" type="id" />
+    <item name="tvMessageResult" type="id" />
+    <item name="ctaBackToSearch" type="id" />
+    <item name="ctaRetry" type="id" />
+</resources>

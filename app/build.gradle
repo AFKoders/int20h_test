@@ -37,7 +37,7 @@ android {
 
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
-        project.ext.set("archivesBaseName", "AFKoders-Music-Akinator-v" + versionName);
+        project.ext.set("archivesBaseName", "AFKoders-Music-Akinator-v" + versionName)
 
         buildConfigField("String", "AUDD_IO_HOST", "\"https://api.audd.io\"")
         buildConfigField("String", "AUDD_API_TOKEN", CONFIG("AUDD_API_TOKEN"))
@@ -80,7 +80,7 @@ dependencies {
 
     // Android
     implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.google.android.material:material:1.2.0-alpha03'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
     // Networking

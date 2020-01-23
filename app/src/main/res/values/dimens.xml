@@ -8,4 +8,5 @@
 
     <dimen name="input_corner_radius">16dp</dimen>
     <dimen name="cta_corner_radius">16dp</dimen>
+    <dimen name="avatar_corner_radius">23dp</dimen>
 </resources>

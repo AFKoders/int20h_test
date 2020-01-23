@@ -18,6 +18,10 @@
         <item name="android:fontFamily">@font/maven_pro_bold</item>
     </style>
 
+    <style name="TextView.Secondary.Message" parent="@style/TextView.Secondary.Text">
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
     <style name="TextView.Lyrics.Text" parent="@style/Widget.AppCompat.TextView">
         <item name="android:textSize">@dimen/lyrics_text_size</item>
         <item name="android:textColor">@color/secondaryTextColor</item>
@@ -34,7 +38,7 @@
         <item name="android:textSize">@dimen/cta_text_size</item>
         <item name="android:fontFamily">@font/maven_pro_bold</item>
         <item name="android:textColor">@color/ctaPrimaryTextColor</item>
-        <item name="android:colorBackground">@color/ctaPrimaryBackgroundColor</item>
+        <item name="android:background">@color/ctaPrimaryBackgroundColor</item>
         <item name="cornerRadius">@dimen/cta_corner_radius</item>
     </style>
 
@@ -42,7 +46,7 @@
         <item name="android:textSize">@dimen/cta_text_size</item>
         <item name="android:fontFamily">@font/maven_pro_bold</item>
         <item name="android:textColor">@color/ctaSecondaryTextColor</item>
-        <item name="android:colorBackground">@color/ctaSecondaryBackgroundColor</item>
+        <item name="android:background">@color/ctaSecondaryBackgroundColor</item>
         <item name="cornerRadius">@dimen/cta_corner_radius</item>
     </style>
 
