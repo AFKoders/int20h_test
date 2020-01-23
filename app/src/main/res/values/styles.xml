@@ -39,6 +39,7 @@
         <item name="android:fontFamily">@font/maven_pro_bold</item>
         <item name="android:textColor">@color/ctaPrimaryTextColor</item>
         <item name="android:backgroundTint">@color/ctaPrimaryBackgroundColor</item>
+        <item name="android:background">@color/ctaPrimaryBackgroundColor</item>
         <item name="cornerRadius">@dimen/cta_corner_radius</item>
     </style>
 
