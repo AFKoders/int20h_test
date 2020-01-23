@@ -22,7 +22,7 @@ class ApiServiceModule {
     }
 
     @Provides
-    @Singleton
+    @ApplicationScope
     fun provideAuddRetrofitBuilder(gson: Gson, client: OkHttpClient) = Retrofit.Builder()
         .baseUrl(BuildConfig.AUDD_IO_HOST)
         .addConverterFactory(NullOrEmptyConverterFactory())

@@ -6,6 +6,7 @@
     <string name="action_no">No</string>
     <string name="action_try_again">Give one more try</string>
     <string name="action_back_to_search">Back to the search</string>
+    <string name="action_open_in">Open in</string>
 
     <!-- Search screen -->
     <string name="label_ask_me">Ask me</string>
@@ -28,7 +29,7 @@
 
     <!-- Failure screen -->
     <string name="title_failure">OOH…</string>
-    <string name="label_failure">I don\'t now your song</string>
+    <string name="label_failure">I don\'t know your song</string>
     <string name="interaction_failure">It must be very special</string>
 
     <!-- Retry screen -->

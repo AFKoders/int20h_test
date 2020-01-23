@@ -3,7 +3,7 @@ package com.afkoders.musicakinator.data.models
 import com.google.gson.annotations.SerializedName
 
 
-data class RecognizedSongs(
+data class Song(
     @SerializedName("song_id")
     val songId: String,
     @SerializedName("artist_id")

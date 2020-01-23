@@ -1,4 +1,4 @@
-package com.afkoders.musicakinator.utils
+package com.afkoders.musicakinator.utils.extensions.widget
 
 import android.app.Activity
 import android.content.Context
@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
+import com.afkoders.musicakinator.utils.extensions.openActivityForResult
 
 
 fun View.hideKeyboard() {

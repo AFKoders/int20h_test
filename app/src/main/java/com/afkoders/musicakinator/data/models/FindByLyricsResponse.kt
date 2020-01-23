@@ -7,5 +7,5 @@ data class FindByLyricsResponse(
     @SerializedName("status")
     val status: Status,
     @SerializedName("result")
-    val result: List<RecognizedSongs>
+    val result: List<Song>?
 )

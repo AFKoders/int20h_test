@@ -4,6 +4,7 @@
     <string name="action_no">Ні</string>
     <string name="action_try_again">Дайти ще одну спробу</string>
     <string name="action_back_to_search">Повернутися до пошуку</string>
+    <string name="action_open_in">Відкрити в</string>
 
     <!-- Search screen -->
     <string name="label_ask_me">Спитай мене</string>
