@@ -5,6 +5,8 @@ import android.view.View
 import androidx.lifecycle.ViewModelProviders
 import com.afkoders.musicakinator.R
 import com.afkoders.musicakinator.presentation.BaseFragment
+import com.afkoders.musicakinator.utils.extensions.makeGone
+import com.afkoders.musicakinator.utils.extensions.makeVisible
 import kotlinx.android.synthetic.main.fragment_found_song.*
 import timber.log.Timber
 
@@ -18,12 +20,19 @@ class FoundSongFragment : BaseFragment<FoundSongViewModel>(R.layout.fragment_fou
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        button.setOnClickListener {
-            viewModel.search()
-                .subscribe { result, err ->
+        arguments?.getString("lyrics").let {
+            loadingBackgorund.makeVisible()
+            viewModel.searchArtist()
+                .subscribe { result
+                             , err ->
+                    loadingBackgorund.makeGone()
                     Timber.d("FUCK. result: $result")
                 }
         }
+    }
+
+    private fun setupLoadingView() {
+
     }
 
     override fun provideViewModel(): FoundSongViewModel =

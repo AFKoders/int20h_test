@@ -18,8 +18,9 @@ class FoundSongViewModel @Inject constructor(
     private @SchedulerUI val schedulerUI: Scheduler,
     private @SchedulerIO val schedulerIO: Scheduler
 ) : ViewModel() {
-    fun search(): Single<List<Song>> = auddRepository
+    fun searchArtist(): Single<List<Song>> = auddRepository
             .findSongsByLyrics("jingle all the way all was fine it is to")
             .subscribeOn(schedulerIO)
             .observeOn(schedulerUI)
+
 }
