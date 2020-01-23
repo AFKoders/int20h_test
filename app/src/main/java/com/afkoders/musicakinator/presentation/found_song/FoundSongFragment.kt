@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import com.afkoders.musicakinator.R
 import com.afkoders.musicakinator.presentation.BaseFragment
 import com.afkoders.musicakinator.utils.extensions.makeGone
@@ -47,6 +48,21 @@ class FoundSongFragment : BaseFragment<FoundSongViewModel>(R.layout.fragment_fou
                         })
                     Timber.d("FUCK. result: $result")
                 }
+        }
+
+        button1.setOnClickListener {
+            findNavController()
+                .navigate(FoundSongFragmentDirections.actionFragmentFoundSongToSuccessFragment())
+        }
+
+        button2.setOnClickListener {
+            findNavController()
+                .navigate(FoundSongFragmentDirections.actionFragmentFoundSongToRetryFragment())
+        }
+
+        button3.setOnClickListener {
+            findNavController()
+                .navigate(FoundSongFragmentDirections.actionFragmentFoundSongToFailureFragment())
         }
     }
 

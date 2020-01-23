@@ -24,17 +24,33 @@
         android:label="FragmentFoundSong"
         tools:layout="@layout/fragment_found_song">
         <action
-            android:id="@+id/navigateToAkinatorWon"
-            app:destination="@id/fragmentAkinatorWon"
-            app:enterAnim="@anim/enter_from_right"
-            app:popExitAnim="@anim/exit_to_right" />
+            android:id="@+id/action_fragmentFoundSong_to_successFragment"
+            app:destination="@id/successFragment" />
+        <action
+            android:id="@+id/action_fragmentFoundSong_to_retryFragment"
+            app:destination="@id/retryFragment" />
+        <action
+            android:id="@+id/action_fragmentFoundSong_to_failureFragment"
+            app:destination="@id/failureFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/fragmentAkinatorWon"
-        android:name="com.afkoders.musicakinator.presentation.akinator_won.AkinatorWonFragment"
-        android:label="FragmentAkinatorWon"
-        tools:layout="@layout/fragment_akinator_won" />
+        android:id="@+id/retryFragment"
+        android:name="com.afkoders.musicakinator.presentation.interation_with_akinator.retry.RetryFragment"
+        android:label="RetryFragment"
+        tools:layout="@layout/fragment_result_retry" />
+
+    <fragment
+        android:id="@+id/failureFragment"
+        android:name="com.afkoders.musicakinator.presentation.interation_with_akinator.failure.FailureFragment"
+        android:label="FailureFragment"
+        tools:layout="@layout/fragment_result_failure" />
+
+    <fragment
+        android:id="@+id/successFragment"
+        android:name="com.afkoders.musicakinator.presentation.interation_with_akinator.success.SuccessFragment"
+        android:label="SuccessFragment"
+        tools:layout="@layout/fragment_result_success" />
 
 </navigation>
 
