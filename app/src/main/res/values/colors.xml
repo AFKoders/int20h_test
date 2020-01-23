@@ -13,4 +13,6 @@
     <color name="ctaSecondaryTextColor">#6A8FFF</color>
     <color name="ctaPrimaryBackgroundColor">#FFFFFF</color>
     <color name="ctaSecondaryBackgroundColor">#062BD4</color>
+    <color name="ctaPrimaryRippleColor">#337F8088</color>
+    <color name="ctaSecondaryRippleColor">#336A8FFF</color>
 </resources>
