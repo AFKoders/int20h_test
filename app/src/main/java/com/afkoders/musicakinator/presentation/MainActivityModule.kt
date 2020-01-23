@@ -7,9 +7,11 @@ import com.afkoders.musicakinator.presentation.found_song.FoundSongFragment
 import com.afkoders.musicakinator.presentation.interation_with_akinator.failure.FailureFragment
 import com.afkoders.musicakinator.presentation.interation_with_akinator.retry.RetryFragment
 import com.afkoders.musicakinator.presentation.interation_with_akinator.success.SuccessFragment
+import com.afkoders.musicakinator.presentation.search.SearchFragment
 import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
+
 
 @Module
 interface MainActivityModule {
@@ -28,6 +30,10 @@ interface MainActivityModule {
     @FragmentScope
     @ContributesAndroidInjector
     fun failureFragment(): FailureFragment?
+
+    @FragmentScope
+    @ContributesAndroidInjector
+    fun searchFragment(): SearchFragment?
 
     // TODO add other fragments
 
