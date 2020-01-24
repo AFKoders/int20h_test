@@ -116,7 +116,8 @@ class InteractionViewModel @Inject constructor(
             deezerSong.title ?: "",
             song.lyrics ?: "",
             deezerSong.album?.picture ?: "",
-            song.artist ?: ""
+            song.artist ?: "",
+            deezerSong.preview ?: ""
         )
     }
 

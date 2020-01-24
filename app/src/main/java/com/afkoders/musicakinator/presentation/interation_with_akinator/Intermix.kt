@@ -9,7 +9,8 @@ open class Intermix(
     val trackName: String,
     val trackLyrics: String,
     val trackImage: String,
-    val artistName: String
+    val artistName: String,
+    val preview:String
 ) {
     fun toHistory(time: String): History {
         return History(
@@ -24,4 +25,4 @@ open class Intermix(
     }
 }
 
-object EmptyIntermix : Intermix("", -1, "", "", "", "")
+object EmptyIntermix : Intermix("", -1, "", "", "", "", "")

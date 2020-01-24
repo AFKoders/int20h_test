@@ -9,6 +9,10 @@ import android.os.Build
 import android.widget.Toast
 
 
+fun Int.dpToPx(context: Context): Int = (this * context.resources.displayMetrics.density).toInt()
+
+fun Int.spToPx(): Int = (this * Resources.getSystem().displayMetrics.scaledDensity).toInt()
+
 fun screenWidth(): Int = Resources.getSystem().displayMetrics.widthPixels
 
 fun screenHeight(): Int = Resources.getSystem().displayMetrics.heightPixels
@@ -28,9 +32,10 @@ fun Context.isNetworkConnected(): Boolean {
             val network = connectivityManager.activeNetwork
             if (network != null) {
                 val networkCapabilities = connectivityManager.getNetworkCapabilities(network)
-                return (networkCapabilities?.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) ?: false) ||
-                        (networkCapabilities?.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ?: false)
-
+                return (networkCapabilities?.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)
+                    ?: false) ||
+                        (networkCapabilities?.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)
+                            ?: false)
             }
         }
     }
@@ -38,14 +43,17 @@ fun Context.isNetworkConnected(): Boolean {
     return false
 }
 
-@JvmOverloads
 fun Context.startIntentOrShowAlert(
     intent: Intent,
     errorDialogText: String
 ) {
-    if ((intent.resolveActivity(this.packageManager) != null) && intent.resolveActivityInfo(this.packageManager, intent.flags).exported) {
+    if ((intent.resolveActivity(this.packageManager) != null) && intent.resolveActivityInfo(
+            this.packageManager,
+            intent.flags
+        ).exported
+    ) {
         startActivity(intent)
     } else {
-        Toast.makeText(this, errorDialogText,Toast.LENGTH_LONG).show()
+        Toast.makeText(this, errorDialogText, Toast.LENGTH_LONG).show()
     }
 }

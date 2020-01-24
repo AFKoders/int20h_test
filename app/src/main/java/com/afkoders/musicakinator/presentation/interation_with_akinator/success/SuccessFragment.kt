@@ -3,7 +3,6 @@ package com.afkoders.musicakinator.presentation.interation_with_akinator.success
 import android.content.Intent
 import android.net.Uri
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.fragment.findNavController
 import com.afkoders.musicakinator.R
 import com.afkoders.musicakinator.presentation.BaseFragment
 import com.afkoders.musicakinator.presentation.interation_with_akinator.InteractionViewModel
@@ -26,15 +25,15 @@ class SuccessFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_res
 
 
         ctaOpenInDeezer.setOnClickListener {
-            requireContext().startIntentOrShowAlert(
+            requireActivity().startIntentOrShowAlert(
                 Intent(Intent.ACTION_VIEW, Uri.parse(trackInfo.openInDeezerLink)),
                 getString(R.string.error_no_browser_app)
             )
         }
 
         Glide.with(requireActivity()).load(trackInfo.trackImage).into(ivMusicCover)
-        tvMusicName.text = trackInfo.trackName
-        tvMusicAuthor.text = trackInfo.artistName
+        tvTrackAuthor.text = trackInfo.artistName
+        tvTrackName.text = trackInfo.trackName
     }
 
     override fun setupOutputs() {
