@@ -6,6 +6,7 @@ import androidx.navigation.fragment.navArgs
 import com.afkoders.musicakinator.R
 import com.afkoders.musicakinator.presentation.BaseFragment
 import com.afkoders.musicakinator.presentation.interation_with_akinator.InteractionViewModel
+import com.afkoders.musicakinator.utils.extensions.finish
 
 class LoadingFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_loading) {
 
@@ -33,9 +34,7 @@ class LoadingFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_loa
     }
 
     private fun goToSearch() {
-        findNavController().navigate(
-            LoadingFragmentDirections.actionLoadingFragmentToFragmentSearch()
-        )
+        finish(R.id.fragmentSearch, false)
     }
 
 }
