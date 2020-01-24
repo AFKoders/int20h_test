@@ -10,6 +10,8 @@ import com.afkoders.musicakinator.presentation.BaseFragment
 import com.afkoders.musicakinator.presentation.interation_with_akinator.Interaction
 import com.afkoders.musicakinator.presentation.interation_with_akinator.InteractionViewModel
 import com.afkoders.musicakinator.presentation.interation_with_akinator.InteractionViewModel.Companion.APP_NAME
+import com.afkoders.musicakinator.utils.extensions.finish
+import com.bumptech.glide.Glide
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.source.ProgressiveMediaSource
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
@@ -41,6 +43,14 @@ class FoundSongFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_f
         ViewModelProviders.of(requireActivity(), viewModelFactory)[InteractionViewModel::class.java]
 
     override fun setupInputs() {
+        if (!viewModel.isTracksCompatible()) {
+            openSearchScreen()
+            return
+        }
+
+
+        flBack.setOnClickListener { finish(R.id.fragmentSearch) }
+
         btnYes.setOnClickListener {
             viewModel.route(isAkinatorMadeRightGuess = true)
             findNavController().navigate(FoundSongFragmentDirections.actionFragmentFoundSongToSuccessFragment())
@@ -48,15 +58,14 @@ class FoundSongFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_f
 
         btnNo.setOnClickListener {
             viewModel.update()
-            when (viewModel.route(isAkinatorMadeRightGuess = false)) {
-                is Interaction.Retry -> {
-                    findNavController().navigate(FoundSongFragmentDirections.actionFragmentFoundSongToRetryFragment())
-                }
-                is Interaction.Failure -> {
-                    findNavController().navigate(FoundSongFragmentDirections.actionFragmentFoundSongToFailureFragment())
-                }
+            when (val route = viewModel.route(isAkinatorMadeRightGuess = false)) {
+                is Interaction.Retry -> if (route.shouldRetry) openSuccessScreen() else openFailureScreen()
+                is Interaction.Failure -> openFailureScreen()
+
             }
         }
+
+        flBack.setOnClickListener { openSearchScreen() }
 
         btnSong.chipBackgroundColor = ColorStateList(states, colors)
         btnLyrics.chipBackgroundColor = ColorStateList(states, colors)
@@ -71,6 +80,8 @@ class FoundSongFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_f
     }
 
     private fun playSong(source: String) {
+        val trackInfo = viewModel.getTrackByAttempt()
+
         val audioSource = ProgressiveMediaSource.Factory(
             DefaultDataSourceFactory(
                 context,
@@ -80,6 +91,21 @@ class FoundSongFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_f
             .createMediaSource(Uri.parse(source))
         exoPlayer.prepare(audioSource)
         exoPlayer.playWhenReady
+
+        Glide.with(requireActivity()).load(trackInfo.trackImage).into(ivAlbumPhoto)
+
+    }
+
+    private fun openFailureScreen() {
+        findNavController().navigate(FoundSongFragmentDirections.actionFragmentFoundSongToFailureFragment())
+    }
+
+    private fun openSuccessScreen() {
+        findNavController().navigate(FoundSongFragmentDirections.actionFragmentFoundSongToRetryFragment())
+    }
+
+    private fun openSearchScreen() {
+        finish(R.id.fragmentSearch)
     }
 
     override fun setupOutputs() {

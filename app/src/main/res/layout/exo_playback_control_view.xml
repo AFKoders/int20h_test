@@ -52,8 +52,8 @@
             android:layout_width="48dp"
             android:layout_height="60dp"
             app:cornerRadius="12dp"
-            android:background="@color/white"
-            android:backgroundTint="@color/white"
+            android:background="@color/colorAccent"
+            android:backgroundTint="@color/colorAccent"
             app:icon="@drawable/ic_play_music"
             app:iconTint="@color/colorPrimary" />
 
@@ -62,7 +62,7 @@
             android:layout_width="48dp"
             android:layout_height="60dp"
             app:cornerRadius="12dp"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/colorAccent"
             app:icon="@drawable/ic_pause_music"
             app:iconTint="@color/colorPrimary" />
     </LinearLayout>

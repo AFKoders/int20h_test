@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/akinator_nav_graph"
-    app:startDestination="@id/fragmentFoundSong">
+    app:startDestination="@id/fragmentSearch">
 
     <fragment
         android:id="@+id/fragmentSearch"
@@ -15,19 +15,26 @@
             android:id="@+id/navigateToLoading"
             app:destination="@id/loadingFragment"
             app:enterAnim="@anim/enter_from_right"
-            app:popExitAnim="@anim/exit_to_right" />
+            app:exitAnim="@anim/exit_to_left" />
         <action
             android:id="@+id/navigateToHistory"
             app:destination="@id/fragmentHistory"
-            app:enterAnim="@anim/enter_from_left"
-            app:popExitAnim="@anim/exit_to_left" />
+            app:enterAnim="@anim/enter_from_top"
+            app:exitAnim="@anim/exit_to_bottom"
+            app:popEnterAnim="@anim/enter_from_bottom"
+            app:popExitAnim="@anim/exit_to_top" />
     </fragment>
 
     <fragment
         android:id="@+id/fragmentHistory"
         android:name="com.afkoders.musicakinator.presentation.history.HistoryFragment"
         android:label="FragmentHistory"
-        tools:layout="@layout/fragment_history" />
+        tools:layout="@layout/fragment_history" >
+        <action
+            android:id="@+id/action_fragmentHistory_to_fragmentSearch"
+            app:destination="@id/fragmentSearch"
+            app:launchSingleTop="true" />
+    </fragment>
 
     <fragment
         android:id="@+id/fragmentFoundSong"
@@ -37,13 +44,24 @@
         <action
             android:id="@+id/action_fragmentFoundSong_to_successFragment"
             app:destination="@id/successFragment"
-            app:popUpToInclusive="false" />
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:popEnterAnim="@anim/enter_alpha"
+            app:popExitAnim="@anim/exit_alpha" />
         <action
             android:id="@+id/action_fragmentFoundSong_to_retryFragment"
-            app:destination="@id/retryFragment" />
+            app:destination="@id/retryFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:popEnterAnim="@anim/enter_alpha"
+            app:popExitAnim="@anim/exit_alpha" />
         <action
             android:id="@+id/action_fragmentFoundSong_to_failureFragment"
-            app:destination="@id/failureFragment" />
+            app:destination="@id/failureFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:popEnterAnim="@anim/enter_alpha"
+            app:popExitAnim="@anim/exit_alpha" />
     </fragment>
 
     <fragment
@@ -59,48 +77,38 @@
         <action
             android:id="@+id/action_fragmentLoading_to_foundSongFragment"
             app:destination="@id/fragmentFoundSong"
-            app:launchSingleTop="true" />
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:launchSingleTop="false"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_to_right"
+            app:popUpTo="@id/fragmentSearch" />
         <action
             android:id="@+id/action_fragmentFoundSong_to_failureFragment"
             app:destination="@id/failureFragment"
-            app:launchSingleTop="true" />
-        <action
-            android:id="@+id/action_loadingFragment_to_fragmentSearch"
-            app:destination="@id/fragmentSearch"
-            app:launchSingleTop="true" />
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_to_right"
+            app:popUpTo="@id/fragmentSearch" />
     </fragment>
 
     <fragment
         android:id="@+id/retryFragment"
         android:name="com.afkoders.musicakinator.presentation.interation_with_akinator.retry.RetryFragment"
         android:label="RetryFragment"
-        tools:layout="@layout/fragment_result_retry">
-        <action
-            android:id="@+id/action_retryFragment_to_fragmentFoundSong"
-            app:destination="@id/fragmentFoundSong"
-            app:launchSingleTop="true" />
-    </fragment>
+        tools:layout="@layout/fragment_result_retry" />
 
     <fragment
         android:id="@+id/failureFragment"
         android:name="com.afkoders.musicakinator.presentation.interation_with_akinator.failure.FailureFragment"
         android:label="FailureFragment"
-        tools:layout="@layout/fragment_result_failure">
-        <action
-            android:id="@+id/action_failureFragment_to_fragmentSearch"
-            app:destination="@id/fragmentSearch"
-            app:launchSingleTop="true" />
-    </fragment>
+        tools:layout="@layout/fragment_result_failure" />
 
     <fragment
         android:id="@+id/successFragment"
         android:name="com.afkoders.musicakinator.presentation.interation_with_akinator.success.SuccessFragment"
         android:label="SuccessFragment"
-        tools:layout="@layout/fragment_result_success">
-        <action
-            android:id="@+id/action_successFragment_to_fragmentSearch"
-            app:destination="@id/fragmentSearch"
-            app:launchSingleTop="true" />
-    </fragment>
+        tools:layout="@layout/fragment_result_success" />
 </navigation>
 

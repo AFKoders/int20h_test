@@ -5,6 +5,7 @@
     <string name="action_try_again">Дайти ще одну спробу</string>
     <string name="action_back_to_search">Повернутися до пошуку</string>
     <string name="action_open_in">Відкрити в</string>
+    <string name="error_no_browser_app">Ми не змогли знайти браузер на вашому пристрої для відкриття URL. Встановіть браузер та спробуйте знову.</string>
 
     <!-- Search screen -->
     <string name="label_ask_me">Спитай мене</string>
@@ -38,4 +39,7 @@
         <item quantity="few">Але я маю ще %d спроби</item>
         <item quantity="many">Але я маю ще %d спроб</item>
     </plurals>
+
+    <!-- History -->
+    <string name="title_history">Історія пошуку</string>
 </resources>

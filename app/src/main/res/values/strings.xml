@@ -7,6 +7,7 @@
     <string name="action_try_again">Give one more try</string>
     <string name="action_back_to_search">Back to the search</string>
     <string name="action_open_in">Open in</string>
+    <string name="error_no_browser_app">We couldn\'t find web browser app to open the URL. Please, download any and try again.</string>
 
     <!-- Search screen -->
     <string name="label_ask_me">Ask me</string>
@@ -15,7 +16,7 @@
 
     <!-- Loading screen -->
     <string name="label_try_to_find">Try to find</string>
-    <string name="label_the_best_results">The best\nresults\n. . .</string>
+    <string name="label_the_best_results">The best\nresults</string>
 
     <!-- Search Result screen -->
     <string name="label_preview_recent_results">Recent results</string>
@@ -39,4 +40,7 @@
         <item quantity="one">BUT I have %d more try</item>
         <item quantity="other">BUT I have %d more tries</item>
     </plurals>
+
+    <!-- History -->
+    <string name="title_history">History</string>
 </resources>

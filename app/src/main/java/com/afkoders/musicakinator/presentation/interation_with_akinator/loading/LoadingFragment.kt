@@ -21,20 +21,29 @@ class LoadingFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_loa
     override fun setupOutputs() {
         args.lyrics?.let {
             viewModel.searchSongs(it)
-                .subscribe { intermixes, err ->
+                .subscribe { intermixes, _ ->
                     viewModel.reset()
-                    viewModel.putItems(intermixes)
 
-                    findNavController().navigate(
-                        LoadingFragmentDirections.actionFragmentLoadingToFoundSongFragment()
-                    )
+                    if (intermixes.isNullOrEmpty()) {
+                        openFailureScreen()
+                    } else {
+                        viewModel.putItems(intermixes)
+
+                        goToFoundSong()
+                    }
                 }.disposeByBagProvider()
-        } ?: goToSearch()
+        } ?: openFailureScreen()
     }
 
-    private fun goToSearch() {
+    private fun openFailureScreen() {
         findNavController().navigate(
-            LoadingFragmentDirections.actionLoadingFragmentToFragmentSearch()
+            LoadingFragmentDirections.actionFragmentFoundSongToFailureFragment()
+        )
+    }
+
+    private fun goToFoundSong() {
+        findNavController().navigate(
+            LoadingFragmentDirections.actionFragmentLoadingToFoundSongFragment()
         )
     }
 
