@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/akinator_nav_graph"
-    app:startDestination="@id/fragmentHistory">
+    app:startDestination="@id/fragmentFoundSong">
 
     <fragment
         android:id="@+id/fragmentSearch"
@@ -36,7 +36,8 @@
         tools:layout="@layout/fragment_found_song">
         <action
             android:id="@+id/action_fragmentFoundSong_to_successFragment"
-            app:destination="@id/successFragment" />
+            app:destination="@id/successFragment"
+            app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_fragmentFoundSong_to_retryFragment"
             app:destination="@id/retryFragment" />
@@ -57,10 +58,12 @@
             android:defaultValue="@null"/>
         <action
             android:id="@+id/action_fragmentLoading_to_foundSongFragment"
-            app:destination="@id/fragmentFoundSong" />
+            app:destination="@id/fragmentFoundSong"
+            app:launchSingleTop="true" />
         <action
             android:id="@+id/action_fragmentFoundSong_to_failureFragment"
-            app:destination="@id/failureFragment" />
+            app:destination="@id/failureFragment"
+            app:launchSingleTop="true" />
     </fragment>
 
     <fragment
@@ -79,7 +82,12 @@
         android:id="@+id/successFragment"
         android:name="com.afkoders.musicakinator.presentation.interation_with_akinator.success.SuccessFragment"
         android:label="SuccessFragment"
-        tools:layout="@layout/fragment_result_success" />
+        tools:layout="@layout/fragment_result_success" >
+        <action
+            android:id="@+id/action_successFragment_to_fragmentSearch"
+            app:destination="@id/fragmentSearch"
+            app:launchSingleTop="true" />
+    </fragment>
 
 </navigation>
 

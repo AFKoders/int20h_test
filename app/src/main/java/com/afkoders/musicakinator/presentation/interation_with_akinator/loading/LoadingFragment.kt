@@ -23,6 +23,7 @@ class LoadingFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_loa
                 .subscribe { intermixes, err ->
                     viewModel.reset()
                     viewModel.putItems(intermixes)
+                    viewModel.route(isAkinatorMadeRightGuess = false)
                 }.disposeByBagProvider()
         } ?: goToSearch()
     }

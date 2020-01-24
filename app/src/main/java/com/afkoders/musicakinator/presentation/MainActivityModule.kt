@@ -6,6 +6,7 @@ import com.afkoders.musicakinator.di.scope.FragmentScope
 import com.afkoders.musicakinator.presentation.found_song.FoundSongFragment
 import com.afkoders.musicakinator.presentation.history.HistoryFragment
 import com.afkoders.musicakinator.presentation.interation_with_akinator.failure.FailureFragment
+import com.afkoders.musicakinator.presentation.interation_with_akinator.loading.LoadingFragment
 import com.afkoders.musicakinator.presentation.interation_with_akinator.retry.RetryFragment
 import com.afkoders.musicakinator.presentation.interation_with_akinator.success.SuccessFragment
 import com.afkoders.musicakinator.presentation.search.SearchFragment
@@ -39,6 +40,10 @@ interface MainActivityModule {
     @FragmentScope
     @ContributesAndroidInjector
     fun historyFragment(): HistoryFragment?
+
+    @FragmentScope
+    @ContributesAndroidInjector
+    fun loadingFragment(): LoadingFragment?
 
     // TODO add other fragments
 

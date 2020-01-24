@@ -6,8 +6,8 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface DeezerApiService {
-    @GET("/search")
+    @GET("/search/track")
     fun findByArtistAndTrack(
-        @Query("q") query: String
+        @Query("q", encoded = true) query: String
     ): Single<FindDeezerResponse>
 }

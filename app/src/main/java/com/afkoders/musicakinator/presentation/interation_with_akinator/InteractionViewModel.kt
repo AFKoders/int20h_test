@@ -107,10 +107,10 @@ class InteractionViewModel @Inject constructor(
     }
 
     private fun mapToSongAndDeezerSong(song: Song): Single<Pair<Song, DeezerSong>> {
-        val songName = song.fullTitle ?: song.title
+        val songName = "${song.title} ${song.artist}"
         val defaultValue = Song() to DeezerSong()
 
-        return if (!songName.isNullOrBlank()) {
+        return if (!songName.isBlank()) {
             deezerRepository.findSongByTitle(songName)
                 .map { song to it }
                 .onErrorReturnItem(defaultValue)
