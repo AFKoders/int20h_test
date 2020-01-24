@@ -6,14 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.afkoders.musicakinator.R
-import com.afkoders.musicakinator.utils.prefs.PrefsModel
+import com.afkoders.musicakinator.data.prefs.HistoryModel
 import kotlinx.android.synthetic.main.history_item.view.*
 
 /**
  * Created by Kalevych Oleksandr on 2020-01-23.
  */
 
-class HistoryAdapter(val items : List<PrefsModel>, val context: Context) : RecyclerView.Adapter<ViewHolder>() {
+class HistoryAdapter(val items : List<HistoryModel>, val context: Context) : RecyclerView.Adapter<ViewHolder>() {
 
     // Gets the number of animals in the list
     override fun getItemCount(): Int {
