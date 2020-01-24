@@ -88,6 +88,7 @@
     <TextView
         style="@style/TextView.Secondary.Text"
         android:layout_width="0dp"
+        android:id="@+id/tvIsSong"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="16dp"
@@ -180,5 +181,11 @@
         android:visibility="gone"
         app:constraint_referenced_ids="tvLyricsTitle,tvLyricsSubtitle,tvLyricsText" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.Group
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/groupNotLyrics"
+        app:constraint_referenced_ids="btnNo,btnYes,tvIsSong,playerView,flPhotoSature,ivAlbumPhoto"
+        />
+   </androidx.constraintlayout.widget.ConstraintLayout>
 

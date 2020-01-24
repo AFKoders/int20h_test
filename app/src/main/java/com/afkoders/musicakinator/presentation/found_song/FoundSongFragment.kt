@@ -11,6 +11,8 @@ import com.afkoders.musicakinator.presentation.interation_with_akinator.Interact
 import com.afkoders.musicakinator.presentation.interation_with_akinator.InteractionViewModel
 import com.afkoders.musicakinator.presentation.interation_with_akinator.InteractionViewModel.Companion.APP_NAME
 import com.afkoders.musicakinator.utils.extensions.finish
+import com.afkoders.musicakinator.utils.extensions.makeGone
+import com.afkoders.musicakinator.utils.extensions.makeVisible
 import com.bumptech.glide.Glide
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.source.ProgressiveMediaSource
@@ -48,7 +50,6 @@ class FoundSongFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_f
             return
         }
 
-
         flBack.setOnClickListener { finish(R.id.fragmentSearch) }
 
         btnYes.setOnClickListener {
@@ -69,6 +70,22 @@ class FoundSongFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_f
 
         btnSong.chipBackgroundColor = ColorStateList(states, colors)
         btnLyrics.chipBackgroundColor = ColorStateList(states, colors)
+
+        btnLyrics.setOnClickListener {
+            groupNotLyrics.makeGone()
+            groupLyrics.makeVisible()
+        }
+
+        btnSong.setOnClickListener {
+            groupNotLyrics.makeVisible()
+            groupLyrics.makeGone()
+        }
+
+        viewModel.getTrackByAttempt().apply {
+            tvLyricsTitle.text = trackName
+            tvLyricsSubtitle.text = artistName
+            tvLyricsText.text = this.trackLyrics
+        }
 
         playerView.apply {
             this.player = exoPlayer
@@ -93,18 +110,20 @@ class FoundSongFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_f
         exoPlayer.playWhenReady
 
         Glide.with(requireActivity()).load(trackInfo.trackImage).into(ivAlbumPhoto)
-
     }
 
     private fun openFailureScreen() {
+        exoPlayer.release()
         findNavController().navigate(FoundSongFragmentDirections.actionFragmentFoundSongToFailureFragment())
     }
 
     private fun openSuccessScreen() {
+        exoPlayer.release()
         findNavController().navigate(FoundSongFragmentDirections.actionFragmentFoundSongToRetryFragment())
     }
 
     private fun openSearchScreen() {
+        exoPlayer.release()
         finish(R.id.fragmentSearch)
     }
 
