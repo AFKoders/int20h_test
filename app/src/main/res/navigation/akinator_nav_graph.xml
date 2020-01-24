@@ -19,8 +19,10 @@
         <action
             android:id="@+id/navigateToHistory"
             app:destination="@id/fragmentHistory"
-            app:enterAnim="@anim/enter_from_left"
-            app:popExitAnim="@anim/exit_to_left" />
+            app:enterAnim="@anim/enter_from_top"
+            app:exitAnim="@anim/exit_to_bottom"
+            app:popEnterAnim="@anim/enter_from_bottom"
+            app:popExitAnim="@anim/exit_to_top" />
     </fragment>
 
     <fragment
@@ -70,18 +72,18 @@
         android:id="@+id/retryFragment"
         android:name="com.afkoders.musicakinator.presentation.interation_with_akinator.retry.RetryFragment"
         android:label="RetryFragment"
-        tools:layout="@layout/fragment_result_retry"/>
+        tools:layout="@layout/fragment_result_retry" />
 
     <fragment
         android:id="@+id/failureFragment"
         android:name="com.afkoders.musicakinator.presentation.interation_with_akinator.failure.FailureFragment"
         android:label="FailureFragment"
-        tools:layout="@layout/fragment_result_failure"/>
+        tools:layout="@layout/fragment_result_failure" />
 
     <fragment
         android:id="@+id/successFragment"
         android:name="com.afkoders.musicakinator.presentation.interation_with_akinator.success.SuccessFragment"
         android:label="SuccessFragment"
-        tools:layout="@layout/fragment_result_success"/>
+        tools:layout="@layout/fragment_result_success" />
 </navigation>
 
