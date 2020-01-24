@@ -14,6 +14,8 @@ import androidx.navigation.fragment.findNavController
 import com.afkoders.musicakinator.R
 import com.afkoders.musicakinator.presentation.BaseFragment
 import com.afkoders.musicakinator.utils.extensions.addSearchWatcher
+import com.afkoders.musicakinator.utils.extensions.makeGone
+import com.afkoders.musicakinator.utils.extensions.makeVisible
 import com.afkoders.musicakinator.utils.extensions.showKeyboard
 import kotlinx.android.synthetic.main.fragment_search.*
 
@@ -25,49 +27,11 @@ class SearchFragment : BaseFragment<SearchViewModel>(R.layout.fragment_search) {
             findNavController().navigate(SearchFragmentDirections.navigateToLoading(typeSongEditText.text.toString()))
         }
 
-        typeSongEditText.addTextChangedListener {
-            if (typeSongEditText.text.toString().isEmpty()) {
-                setupVoiceButton()
-            } else {
-                setupClearButton()
-            }
+        ivClearInput.setOnClickListener {
+            typeSongEditText.setText("")
         }
 
-        ivHistory.setOnClickListener {
-            findNavController().navigate(SearchFragmentDirections.navigateToHistory())
-        }
-
-        typeSongEditText.addSearchWatcher {
-            findNavController().navigate(
-                SearchFragmentDirections.navigateToLoading(typeSongEditText.text.toString())
-            )
-            ivVoiceInput.requestFocus()
-            setupVoiceButton()
-        }
-    }
-
-    private fun setupClearButton() {
-        ivVoiceInput.apply {
-            setImageDrawable(ResourcesCompat.getDrawable(resources, R.drawable.ic_close_gray, null))
-            setOnClickListener {
-                typeSongEditText.setText("")
-            }
-        }
-    }
-
-    private val recognitionCallback: (text: String) -> Unit = {
-        typeSongEditText.apply {
-            setText(it)
-            requestFocus()
-            setSelection(typeSongEditText.text.toString().length)
-            showKeyboard()
-        }
-    }
-
-    private fun setupVoiceButton() {
-        ivVoiceInput.apply {
-            setImageDrawable(ResourcesCompat.getDrawable(resources, R.drawable.ic_micro, null))
-            setOnTouchListener { _, motionEvent ->
+        ivVoiceInput.setOnTouchListener { _, motionEvent ->
                 checkPermission()
 
                 when (motionEvent.action) {
@@ -83,6 +47,36 @@ class SearchFragment : BaseFragment<SearchViewModel>(R.layout.fragment_search) {
                 }
                 return@setOnTouchListener true
             }
+
+        typeSongEditText.addTextChangedListener {
+            if (typeSongEditText.text.toString().isBlank()) {
+                ivClearInput.makeGone()
+                ivVoiceInput.makeVisible()
+            } else {
+                ivClearInput.makeVisible()
+                ivVoiceInput.makeGone()
+            }
+        }
+
+        ivHistory.setOnClickListener {
+            findNavController().navigate(SearchFragmentDirections.navigateToHistory())
+        }
+
+        typeSongEditText.addSearchWatcher {
+            findNavController().navigate(
+                SearchFragmentDirections.navigateToLoading(typeSongEditText.text.toString())
+            )
+            ivVoiceInput.requestFocus()
+            typeSongEditText.setText("")
+        }
+    }
+
+    private val recognitionCallback: (text: String) -> Unit = {
+        typeSongEditText.apply {
+            setText(it)
+            requestFocus()
+            setSelection(typeSongEditText.text.toString().length)
+            showKeyboard()
         }
     }
 
@@ -93,7 +87,6 @@ class SearchFragment : BaseFragment<SearchViewModel>(R.layout.fragment_search) {
         )
 
         if (permission != PackageManager.PERMISSION_GRANTED) {
-            Log.i(TAG, "Permission to record denied")
             makeRequestForPermission()
         }
     }
