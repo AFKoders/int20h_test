@@ -77,11 +77,6 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.5" />
 
-    <com.google.android.exoplayer2.ui.PlayerView
-        android:id="@+id/playerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/flPhotoSature" />
 
     <TextView
         style="@style/TextView.Secondary.Text"
@@ -160,6 +155,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvLyricsSubtitle"
         tools:text="Lyrics subtitle" />
+
+    <com.google.android.exoplayer2.ui.PlayerView
+        android:id="@+id/playerView"
+        android:layout_width="match_parent"
+        android:layout_height="112dp"
+        app:controller_layout_id="@layout/exo_playback_control_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:resize_mode="fixed_height"
+        app:layout_constraintTop_toBottomOf="@+id/flPhotoSature" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/groupLyrics"
