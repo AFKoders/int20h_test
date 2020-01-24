@@ -18,26 +18,30 @@ class InteractionViewModel @Inject constructor(
     @SchedulerUI private val schedulerUI: Scheduler,
     @SchedulerIO private val schedulerIO: Scheduler
 ) : ViewModel() {
-    val trackData = mutableListOf<Intermix>()
 
     var attemptsCount: Int = MAX_ATTEMPTS_COUNT
         private set
 
-    private var routeOnNextInteraction: Interaction = Interaction.Retry(normalizedId())
+    var maxAttempts: Int = MAX_ATTEMPTS_COUNT
+        private set
+
+    private val trackData = mutableListOf<Intermix>()
+
+    private var routeOnNextInteraction: Interaction = Interaction.Retry(attemptsCount)
 
     private fun updateAttemptsCount(shouldContinueGuessing: Boolean) {
-        attemptsCount = if (shouldContinueGuessing) attemptsCount.minus(1) else MAX_ATTEMPTS_COUNT
+        attemptsCount = if (shouldContinueGuessing) attemptsCount.minus(1) else maxAttempts
     }
 
     private fun updateRoute(shouldContinueGuessing: Boolean) {
         routeOnNextInteraction = if (shouldContinueGuessing) {
-            Interaction.Retry(normalizedId())
+            Interaction.Retry(attemptsCount)
         } else {
             Interaction.Failure
         }
     }
 
-    private fun normalizedId() = MAX_ATTEMPTS_COUNT - attemptsCount
+    private fun normalizedId() = maxAttempts - attemptsCount
 
     fun update() {
         val shouldContinueGuessing = attemptsCount > 0
@@ -59,6 +63,18 @@ class InteractionViewModel @Inject constructor(
     fun reset() {
         updateAttemptsCount(false)
         updateRoute(true)
+        trackData.clear()
+        maxAttempts = MAX_ATTEMPTS_COUNT
+        attemptsCount = MAX_ATTEMPTS_COUNT
+    }
+
+    fun putItems(newTrackData: List<Intermix>) {
+        check(newTrackData.size <= MAX_ATTEMPTS_COUNT) { "Size of tracks list should be less or equal to $MAX_ATTEMPTS_COUNT" }
+
+        trackData.addAll(newTrackData)
+
+        maxAttempts = newTrackData.size
+        attemptsCount = newTrackData.size
     }
 
     fun searchSongs(lyrics: String): Single<List<Intermix>> =
@@ -93,10 +109,10 @@ class InteractionViewModel @Inject constructor(
     }
 
     private fun mapToSongAndDeezerSong(song: Song): Single<Pair<Song, DeezerSong>> {
-        val songName = song.fullTitle ?: song.title
+        val songName = "${song.title} ${song.artist}"
         val defaultValue = Song() to DeezerSong()
 
-        return if (!songName.isNullOrBlank()) {
+        return if (!songName.isBlank()) {
             deezerRepository.findSongByTitle(songName)
                 .map { song to it }
                 .onErrorReturnItem(defaultValue)

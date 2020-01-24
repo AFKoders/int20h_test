@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary">
@@ -10,21 +10,22 @@
         android:id="@+id/ivAlbumPhoto"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_launcher" />
+        app:srcCompat="@drawable/test_image" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/ivPhotoSature"
+    <FrameLayout
+        android:id="@+id/flPhotoSature"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@drawable/gradient_found_song"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/ivAlbumPhoto"
-        app:srcCompat="@drawable/gradient_found_song" />
+        app:layout_constraintTop_toTopOf="@id/ivAlbumPhoto" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivBack"
@@ -38,35 +39,36 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_arrow_left" />
 
-    <Button
-        android:id="@+id/btnSong"
-        style="@style/Button.Primary"
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chgTabs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:gravity="center"
-        android:text="@string/tab_song"
-        android:textAlignment="center"
-        android:textAllCaps="false"
+        android:layout_marginStart="24dp"
+        app:checkedChip="@+id/btnSong"
+        app:chipSpacingHorizontal="16dp"
         app:layout_constraintBottom_toBottomOf="@+id/ivBack"
         app:layout_constraintStart_toEndOf="@+id/ivBack"
-        app:layout_constraintTop_toTopOf="@+id/ivBack" />
+        app:layout_constraintTop_toTopOf="@+id/ivBack"
+        app:selectionRequired="true"
+        app:singleLine="true"
+        app:singleSelection="true">
 
-    <Button
-        android:id="@+id/btnLyrics"
-        style="@style/Button.Secondary"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:background="@android:color/transparent"
-        android:gravity="center"
-        android:text="@string/tab_lyrics"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        app:layout_constraintBottom_toBottomOf="@+id/ivBack"
-        app:layout_constraintStart_toEndOf="@+id/btnSong"
-        app:layout_constraintTop_toTopOf="@+id/ivBack" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btnSong"
+            style="@style/Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="@string/tab_song" />
 
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btnLyrics"
+            style="@style/Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="@string/tab_lyrics" />
+    </com.google.android.material.chip.ChipGroup>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -82,13 +84,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:gravity="center"
-        android:text="there will be a player"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivPhotoSature" />
+        app:layout_constraintTop_toBottomOf="@+id/flPhotoSature"
+        tools:text="there will be a player" />
 
     <TextView
-
         style="@style/TextView.Secondary.Text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -102,7 +103,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnNo"
         style="@style/Button.Secondary"
         android:layout_width="0dp"
@@ -114,7 +115,7 @@
         app:layout_constraintEnd_toStartOf="@id/btnYes"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnYes"
         style="@style/Button.Primary"
         android:layout_width="0dp"
@@ -126,7 +127,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/btnNo" />
 
-
     <TextView
         android:id="@+id/tvLyricsTitle"
         style="@style/TextView.Primary.Text"
@@ -134,10 +134,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:gravity="center"
-        android:text="Lyrics title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLyrics" />
+        app:layout_constraintTop_toBottomOf="@+id/chgTabs"
+        tools:text="Lyrics title" />
 
     <TextView
         android:id="@+id/tvLyricsSubtitle"
@@ -146,12 +146,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:gravity="center"
-        android:text="Lyrics subtitle"
         android:textAllCaps="true"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLyricsTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/tvLyricsTitle"
+        tools:text="Lyrics subtitle" />
 
     <TextView
         android:id="@+id/tvLyricsText"
@@ -160,21 +160,19 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:gravity="center"
-        android:text="Lyrics subtitle"
         android:textAllCaps="false"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLyricsSubtitle" />
+        app:layout_constraintTop_toBottomOf="@+id/tvLyricsSubtitle"
+        tools:text="Lyrics subtitle" />
 
     <androidx.constraintlayout.widget.Group
-        android:layout_width="wrap_content"
         android:id="@+id/groupLyrics"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        app:constraint_referenced_ids="tvLyricsTitle,tvLyricsSubtitle,tvLyricsText">
-    </androidx.constraintlayout.widget.Group>
-
+        app:constraint_referenced_ids="tvLyricsTitle,tvLyricsSubtitle,tvLyricsText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 class SearchViewModel @Inject constructor(
     private val speechRecognitionHelper: SpeechRecognitionHelper
-    ) : ViewModel() {
+) : ViewModel() {
 
     fun stopListening() {
         speechRecognitionHelper.stopListening()

@@ -21,7 +21,6 @@ import kotlinx.android.synthetic.main.fragment_search.*
 class SearchFragment : BaseFragment<SearchViewModel>(R.layout.fragment_search) {
 
     override fun setupInputs() {
-
         typeSongEditText.addSearchWatcher {
             findNavController().navigate(SearchFragmentDirections.navigateToLoading(typeSongEditText.text.toString()))
         }
@@ -34,13 +33,17 @@ class SearchFragment : BaseFragment<SearchViewModel>(R.layout.fragment_search) {
             }
         }
 
-
         ivHistory.setOnClickListener {
             findNavController().navigate(SearchFragmentDirections.navigateToHistory())
         }
 
-        ivVoiceInput.requestFocus()
-        setupVoiceButton()
+        typeSongEditText.addSearchWatcher {
+            findNavController().navigate(
+                SearchFragmentDirections.navigateToLoading(typeSongEditText.text.toString())
+            )
+            ivVoiceInput.requestFocus()
+            setupVoiceButton()
+        }
     }
 
     private fun setupClearButton() {
@@ -64,7 +67,7 @@ class SearchFragment : BaseFragment<SearchViewModel>(R.layout.fragment_search) {
     private fun setupVoiceButton() {
         ivVoiceInput.apply {
             setImageDrawable(ResourcesCompat.getDrawable(resources, R.drawable.ic_micro, null))
-            setOnTouchListener { view, motionEvent ->
+            setOnTouchListener { _, motionEvent ->
                 checkPermission()
 
                 when (motionEvent.action) {
@@ -107,7 +110,6 @@ class SearchFragment : BaseFragment<SearchViewModel>(R.layout.fragment_search) {
         ViewModelProviders.of(requireActivity(), viewModelFactory)[SearchViewModel::class.java]
 
     companion object {
-        const val LYRICS_ARGUMENT = "ARGUMENT.lyrics"
         const val RECORD_REQUEST_CODE = 393
     }
 

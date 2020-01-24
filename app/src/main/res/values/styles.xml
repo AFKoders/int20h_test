@@ -30,10 +30,20 @@
         <item name="android:gravity">center</item>
     </style>
 
-    <style name="Tab.Text" parent="TextAppearance.AppCompat">
-        <item name="android:textSize">@dimen/tab_text_size</item>
-        <item name="android:textColor">@color/secondaryTextColor</item>
+    <style name="Tab.Text" parent="TextAppearance.MaterialComponents.Button">
         <item name="android:fontFamily">@font/maven_pro_bold</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Chip.Choice" parent="@style/Widget.MaterialComponents.Chip.Choice">
+        <item name="android:backgroundTint">@color/tab_chip_background</item>
+        <item name="android:textSize">@dimen/tab_text_size</item>
+        <item name="android:textColor">@color/tab_chip_text_color</item>
+        <item name="android:textAppearance">@style/Tab.Text</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="chipCornerRadius">10dp</item>
+        <item name="chipStartPadding">8dp</item>
+        <item name="chipEndPadding">8dp</item>
     </style>
 
     <style name="Button.Primary" parent="@style/Widget.MaterialComponents.Button">

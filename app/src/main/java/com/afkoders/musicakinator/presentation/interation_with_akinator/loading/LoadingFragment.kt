@@ -1,11 +1,15 @@
 package com.afkoders.musicakinator.presentation.interation_with_akinator.loading
 
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.afkoders.musicakinator.R
 import com.afkoders.musicakinator.presentation.BaseFragment
 import com.afkoders.musicakinator.presentation.interation_with_akinator.InteractionViewModel
 
 class LoadingFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_loading) {
+
+    val args: LoadingFragmentArgs by navArgs()
 
     override fun provideViewModel() =
         ViewModelProviders.of(requireActivity(), viewModelFactory)[InteractionViewModel::class.java]
@@ -15,12 +19,23 @@ class LoadingFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_loa
     }
 
     override fun setupOutputs() {
-        // TODO get argument with lyrics
+        args.lyrics?.let {
+            viewModel.searchSongs(it)
+                .subscribe { intermixes, err ->
+                    viewModel.reset()
+                    viewModel.putItems(intermixes)
 
-        viewModel.searchSongs("")
-            .subscribe { intermixes, err ->
-                // TODO for Yaroslav process somehow with router
-            }.disposeByBagProvider()
+                    findNavController().navigate(
+                        LoadingFragmentDirections.actionFragmentLoadingToFoundSongFragment()
+                    )
+                }.disposeByBagProvider()
+        } ?: goToSearch()
+    }
+
+    private fun goToSearch() {
+        findNavController().navigate(
+            LoadingFragmentDirections.actionLoadingFragmentToFragmentSearch()
+        )
     }
 
 }
