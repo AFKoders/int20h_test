@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/akinator_nav_graph"
-    app:startDestination="@id/fragmentFoundSong">
+    app:startDestination="@id/fragmentSearch">
 
     <fragment
         android:id="@+id/fragmentSearch"
@@ -29,7 +29,12 @@
         android:id="@+id/fragmentHistory"
         android:name="com.afkoders.musicakinator.presentation.history.HistoryFragment"
         android:label="FragmentHistory"
-        tools:layout="@layout/fragment_history" />
+        tools:layout="@layout/fragment_history" >
+        <action
+            android:id="@+id/action_fragmentHistory_to_fragmentSearch"
+            app:destination="@id/fragmentSearch"
+            app:launchSingleTop="true" />
+    </fragment>
 
     <fragment
         android:id="@+id/fragmentFoundSong"

@@ -58,7 +58,7 @@ class SearchFragment : BaseFragment<SearchViewModel>(R.layout.fragment_search) {
             }
         }
 
-        ivHistory.setOnClickListener {
+        flHistory.setOnClickListener {
             findNavController().navigate(SearchFragmentDirections.navigateToHistory())
         }
 

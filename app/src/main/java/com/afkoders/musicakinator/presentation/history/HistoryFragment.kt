@@ -1,13 +1,9 @@
 package com.afkoders.musicakinator.presentation.history
 
-import android.os.Bundle
-import android.view.View
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import com.afkoders.musicakinator.R
 import com.afkoders.musicakinator.presentation.BaseFragment
-import com.afkoders.musicakinator.data.prefs.HistoryPrefs
-import com.afkoders.musicakinator.data.prefs.HistoryModel
-import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_history.*
 
 /**
@@ -16,16 +12,23 @@ import kotlinx.android.synthetic.main.fragment_history.*
 
 class HistoryFragment : BaseFragment<HistoryViewModel>(R.layout.fragment_history) {
 
+    private lateinit var adapter: HistoryAdapter
+
     override fun setupInputs() {
         // Empty
     }
 
     override fun setupOutputs() {
-        viewModel.addDataToHistory(listOf(HistoryModel("test", "test", "1231231123123")))
         viewModel.getHistoryPreferences()
-            .subscribe { history, err ->
-                rvHistory.adapter = HistoryAdapter(history, requireContext())
+            .subscribe { history, _ ->
+                adapter = HistoryAdapter(history, requireContext())
+                rvHistory.adapter = adapter
+                adapter.notifyDataSetChanged()
             }.disposeByBagProvider()
+
+        flBack.setOnClickListener {
+            findNavController().navigate(HistoryFragmentDirections.actionFragmentHistoryToFragmentSearch())
+        }
     }
 
     override fun provideViewModel(): HistoryViewModel =

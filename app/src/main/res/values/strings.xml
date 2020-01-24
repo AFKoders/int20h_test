@@ -40,4 +40,7 @@
         <item quantity="one">BUT I have %d more try</item>
         <item quantity="other">BUT I have %d more tries</item>
     </plurals>
+
+    <!-- History -->
+    <string name="title_history">History</string>
 </resources>

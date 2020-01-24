@@ -8,16 +8,24 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/ivHistory"
-        style="@style/ImageView"
+    <FrameLayout
+        android:id="@+id/flHistory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
+        android:layout_margin="6dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/iv_click_ripple_fix"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_history" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            style="@style/ImageView"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="10dp"
+            app:srcCompat="@drawable/ic_history" />
+    </FrameLayout>
 
     <TextView
         android:id="@+id/tvAskMe"
@@ -93,6 +101,5 @@
         app:layout_constraintEnd_toEndOf="@+id/typeSongEditText"
         app:layout_constraintTop_toTopOf="@+id/typeSongEditText"
         app:srcCompat="@drawable/ic_close_gray" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
 

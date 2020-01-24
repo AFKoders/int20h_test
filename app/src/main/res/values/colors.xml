@@ -17,4 +17,6 @@
     <color name="ctaPrimaryRippleColor">#337F8088</color>
     <color name="ctaSecondaryRippleColor">#336A8FFF</color>
     <color name="white">#ffffff</color>
+
+    <color name="colorGradientSemiTransparent">#802449F2</color>
 </resources>

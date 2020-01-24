@@ -1,7 +1,6 @@
 package com.afkoders.musicakinator.presentation.interation_with_akinator.retry
 
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.fragment.findNavController
 import com.afkoders.musicakinator.R
 import com.afkoders.musicakinator.presentation.BaseFragment
 import com.afkoders.musicakinator.presentation.interation_with_akinator.Interaction

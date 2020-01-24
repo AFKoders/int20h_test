@@ -3,21 +3,27 @@ package com.afkoders.musicakinator.presentation.interation_with_akinator
 import androidx.lifecycle.ViewModel
 import com.afkoders.musicakinator.data.models.DeezerSong
 import com.afkoders.musicakinator.data.models.Song
+import com.afkoders.musicakinator.data.prefs.HistoryPrefs
 import com.afkoders.musicakinator.data.repository.AuddRepository
 import com.afkoders.musicakinator.data.repository.DeezerRepository
 import com.afkoders.musicakinator.di.qualifiers.SchedulerIO
 import com.afkoders.musicakinator.di.qualifiers.SchedulerUI
 import io.reactivex.Scheduler
 import io.reactivex.Single
+import java.text.SimpleDateFormat
+import java.util.*
 import javax.inject.Inject
 
 
 class InteractionViewModel @Inject constructor(
+    private val history: HistoryPrefs,
     private val auddRepository: AuddRepository,
     private val deezerRepository: DeezerRepository,
     @SchedulerUI private val schedulerUI: Scheduler,
     @SchedulerIO private val schedulerIO: Scheduler
 ) : ViewModel() {
+
+    val dateFormat = SimpleDateFormat("MMM d, hh:mm a" /* Apr 29, 4:11 PM */, Locale.US)
 
     var attemptsCount: Int = MAX_ATTEMPTS_COUNT
         private set
@@ -52,10 +58,16 @@ class InteractionViewModel @Inject constructor(
 
     fun route(isAkinatorMadeRightGuess: Boolean): Interaction {
         return if (isAkinatorMadeRightGuess) {
-            Interaction.Success(getTrackByAttempt())
+            val result = getTrackByAttempt()
+            saveGuessedTrack(result)
+            Interaction.Success(result)
         } else {
             routeOnNextInteraction
         }
+    }
+
+    private fun saveGuessedTrack(result: Intermix) {
+        history.addToHistory(result.toHistory(dateFormat.format(Date())))
     }
 
     fun getTrackByAttempt() = trackData[normalizedId()]
@@ -89,7 +101,7 @@ class InteractionViewModel @Inject constructor(
                         .map { it as Pair<Song, DeezerSong> }
                         .filter { !it.first.songId.isNullOrBlank() }
                         .map { (song, deezerSong) -> createIntermixModel(song, deezerSong) }
-                }
+                }.map { if (it.isEmpty()) return@map listOf(EmptyIntermix) else it }
             }
             .subscribeOn(schedulerIO)
             .observeOn(schedulerUI)
@@ -120,6 +132,8 @@ class InteractionViewModel @Inject constructor(
             Single.just(defaultValue)
         }
     }
+
+    fun isTracksCompatible() = !trackData.contains(EmptyIntermix)
 
     companion object {
         const val MAX_ATTEMPTS_COUNT = 5
