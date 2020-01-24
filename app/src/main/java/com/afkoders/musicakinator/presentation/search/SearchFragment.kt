@@ -17,22 +17,16 @@ import com.afkoders.musicakinator.utils.extensions.navigateTo
 import com.afkoders.musicakinator.utils.extensions.showKeyboard
 import kotlinx.android.synthetic.main.fragment_search.*
 
-/**
- * Created by Kalevych Oleksandr on 2020-01-22.
- */
 
 class SearchFragment : BaseFragment<SearchViewModel>(R.layout.fragment_search) {
 
     override fun setupInputs() {
 
         typeSongEditText.addSearchWatcher {
-            viewModel.searchSongs(typeSongEditText.text.toString())
-                .subscribe { data, err ->
-                    Log.e("FUCK", "data: $data")
-                    navigateTo(R.id.navigateToFoundSong) {
-                        //                        putString(LYRICS_ARGUMENT, typeSongEditText.text.toString())
-                    }
-                }
+
+            navigateTo(R.id.navigateToLoading) {
+                putString(LYRICS_ARGUMENT, typeSongEditText.text.toString())
+            }
         }
 
         typeSongEditText.addTextChangedListener {

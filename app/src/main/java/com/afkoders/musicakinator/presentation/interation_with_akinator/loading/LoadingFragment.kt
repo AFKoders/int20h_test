@@ -1,12 +1,11 @@
-package com.afkoders.musicakinator.presentation.interation_with_akinator.failure
+package com.afkoders.musicakinator.presentation.interation_with_akinator.loading
 
 import androidx.lifecycle.ViewModelProviders
 import com.afkoders.musicakinator.R
 import com.afkoders.musicakinator.presentation.BaseFragment
 import com.afkoders.musicakinator.presentation.interation_with_akinator.InteractionViewModel
 
-
-class FailureFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_result_failure) {
+class LoadingFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_loading) {
 
     override fun provideViewModel() =
         ViewModelProviders.of(requireActivity(), viewModelFactory)[InteractionViewModel::class.java]
@@ -16,7 +15,12 @@ class FailureFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_res
     }
 
     override fun setupOutputs() {
-        // Empty
+        // TODO get argument with lyrics
+
+        viewModel.searchSongs("")
+            .subscribe { intermixes, err ->
+                // TODO for Yaroslav process somehow with router
+            }.disposeByBagProvider()
     }
 
 }
