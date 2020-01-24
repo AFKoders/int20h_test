@@ -8,6 +8,7 @@ import com.afkoders.musicakinator.R
 import com.afkoders.musicakinator.presentation.BaseFragment
 import com.afkoders.musicakinator.presentation.interation_with_akinator.Interaction
 import com.afkoders.musicakinator.presentation.interation_with_akinator.InteractionViewModel
+import com.afkoders.musicakinator.utils.extensions.finish
 import kotlinx.android.synthetic.main.fragment_found_song.*
 
 
@@ -33,6 +34,8 @@ class FoundSongFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_f
         ViewModelProviders.of(requireActivity(), viewModelFactory)[InteractionViewModel::class.java]
 
     override fun setupInputs() {
+        ivBack.setOnClickListener { finish(R.id.fragmentSearch) }
+
         btnYes.setOnClickListener {
             viewModel.route(isAkinatorMadeRightGuess = true)
             findNavController().navigate(FoundSongFragmentDirections.actionFragmentFoundSongToSuccessFragment())
