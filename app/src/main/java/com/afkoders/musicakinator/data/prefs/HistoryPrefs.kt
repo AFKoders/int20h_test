@@ -1,8 +1,9 @@
 package com.afkoders.musicakinator.data.prefs
 
 import android.content.Context
+import android.provider.MediaStore.Video
 import com.google.gson.Gson
-import org.json.JSONArray
+import com.google.gson.reflect.TypeToken
 
 
 /**
@@ -28,18 +29,10 @@ class HistoryPrefs constructor(context: Context, val gson: Gson) {
 
     var history: List<HistoryModel>
         set(value) = prefs.edit().putString(HISTORY_LIST, gson.toJson(value)).apply()
-        get() = prefs.getString(HISTORY_LIST, "")?.let {
-            val array = JSONArray(it)
-            (0 until array.length()).map {
-                array.getJSONObject(it).let {
-                    HistoryModel(
-                        it.getString("name"),
-                        it.getString("artist"),
-                        it.getString("time")
-                    )
-                }
-            }
-        } ?: listOf()
+        get() = gson.fromJson(
+            prefs.getString(HISTORY_LIST, ""),
+            object : TypeToken<List<HistoryModel>>() {}.type
+        )
 
     fun clear() {
         prefs.edit().clear().apply()

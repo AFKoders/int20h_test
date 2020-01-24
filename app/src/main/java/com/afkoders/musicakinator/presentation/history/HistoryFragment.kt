@@ -21,6 +21,7 @@ class HistoryFragment : BaseFragment<HistoryViewModel>(R.layout.fragment_history
     }
 
     override fun setupOutputs() {
+        viewModel.addDataToHistory(listOf(HistoryModel("test", "test", "1231231123123")))
         viewModel.getHistoryPreferences()
             .subscribe { history, err ->
                 rvHistory.adapter = HistoryAdapter(history, requireContext())

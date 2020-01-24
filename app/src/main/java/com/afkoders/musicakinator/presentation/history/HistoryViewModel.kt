@@ -15,6 +15,11 @@ class HistoryViewModel @Inject constructor(
     @SchedulerUI private val schedulerUI: Scheduler,
     @SchedulerIO private val schedulerIO: Scheduler
 ) : ViewModel() {
+
+    fun addDataToHistory(data: List<HistoryModel>) {
+        historyPrefs.history = data
+    }
+
     fun getHistoryPreferences(): Single<List<HistoryModel>> =
         Single.just(historyPrefs.history)
             .subscribeOn(schedulerIO)
