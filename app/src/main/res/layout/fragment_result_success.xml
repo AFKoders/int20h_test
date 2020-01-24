@@ -57,7 +57,7 @@
         android:id="@+id/ivMusicCoverContainer"
         android:layout_width="175dp"
         android:layout_height="175dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="40dp"
         android:foreground="@drawable/iv_rectangle_with_corners"
         android:padding="10dp"
         app:layout_constraintBottom_toTopOf="@+id/ctaBackToSearch"
@@ -76,13 +76,15 @@
     </FrameLayout>
 
     <TextView
-        android:id="@+id/tvMusicName"
+        android:id="@+id/tvTrackAuthor"
         style="@style/TextView.Primary.Text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+        android:ellipsize="end"
         android:gravity="center"
+        android:maxLines="1"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -90,17 +92,19 @@
         tools:text="Pendulum" />
 
     <TextView
-        android:id="@+id/tvMusicAuthor"
+        android:id="@+id/tvTrackName"
         style="@style/TextView.Secondary.Text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+        android:ellipsize="end"
         android:gravity="center"
+        android:maxLines="1"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvMusicName"
+        app:layout_constraintTop_toBottomOf="@+id/tvTrackAuthor"
         tools:text="Witchcraft" />
 
     <com.google.android.material.button.MaterialButton
@@ -116,9 +120,9 @@
         android:textAllCaps="false"
         android:textSize="@dimen/tab_text_size"
         app:iconSize="4dp"
-        app:layout_constraintEnd_toEndOf="@+id/tvMusicAuthor"
-        app:layout_constraintStart_toStartOf="@+id/tvMusicName"
-        app:layout_constraintTop_toBottomOf="@+id/tvMusicAuthor" />
+        app:layout_constraintEnd_toEndOf="@+id/tvTrackName"
+        app:layout_constraintStart_toStartOf="@+id/tvTrackAuthor"
+        app:layout_constraintTop_toBottomOf="@+id/tvTrackName" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/ctaBackToSearch"

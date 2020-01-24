@@ -1,22 +1,19 @@
 package com.afkoders.musicakinator.presentation.search
 
 import android.Manifest.permission.RECORD_AUDIO
-import android.content.ContentValues.TAG
 import android.content.pm.PackageManager
-import android.util.Log
 import android.view.MotionEvent
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.content.res.ResourcesCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.afkoders.musicakinator.R
 import com.afkoders.musicakinator.presentation.BaseFragment
-import com.afkoders.musicakinator.utils.extensions.addSearchWatcher
-import com.afkoders.musicakinator.utils.extensions.makeGone
-import com.afkoders.musicakinator.utils.extensions.makeVisible
-import com.afkoders.musicakinator.utils.extensions.showKeyboard
+import com.afkoders.musicakinator.utils.extensions.widget.addSearchWatcher
+import com.afkoders.musicakinator.utils.extensions.widget.makeGone
+import com.afkoders.musicakinator.utils.extensions.widget.makeVisible
+import com.afkoders.musicakinator.utils.extensions.widget.showKeyboard
 import kotlinx.android.synthetic.main.fragment_search.*
 
 

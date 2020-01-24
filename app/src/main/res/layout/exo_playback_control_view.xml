@@ -26,24 +26,24 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:orientation="vertical"
             android:layout_weight="0.1"
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/tvSongName"
+                android:id="@+id/tvTrackAuthor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/TextView.Primary.Text"
-                android:text="Pendulum" />
+                tools:text="Pendulum" />
 
             <TextView
-                android:id="@+id/tvSongArtist"
+                android:id="@+id/tvTrackName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/TextView.Secondary.Text"
-                android:text="Withcraft" />
+                tools:text="Withcraft" />
 
         </LinearLayout>
 

@@ -11,14 +11,15 @@ import com.afkoders.musicakinator.presentation.interation_with_akinator.Interact
 import com.afkoders.musicakinator.presentation.interation_with_akinator.InteractionViewModel
 import com.afkoders.musicakinator.presentation.interation_with_akinator.InteractionViewModel.Companion.APP_NAME
 import com.afkoders.musicakinator.utils.extensions.finish
-import com.afkoders.musicakinator.utils.extensions.makeGone
-import com.afkoders.musicakinator.utils.extensions.makeVisible
+import com.afkoders.musicakinator.utils.extensions.widget.makeGone
+import com.afkoders.musicakinator.utils.extensions.widget.makeVisible
 import com.bumptech.glide.Glide
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.source.ProgressiveMediaSource
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
 import com.google.android.exoplayer2.util.Util
 import kotlinx.android.synthetic.main.fragment_found_song.*
+import kotlinx.android.synthetic.main.fragment_result_success.*
 
 
 /**
@@ -39,7 +40,7 @@ class FoundSongFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_f
         )
     }
 
-    private var exoPlayer = SimpleExoPlayer.Builder(requireContext()).build()
+    private val exoPlayer by lazy { SimpleExoPlayer.Builder(requireActivity()).build() }
 
     override fun provideViewModel() =
         ViewModelProviders.of(requireActivity(), viewModelFactory)[InteractionViewModel::class.java]
@@ -49,6 +50,8 @@ class FoundSongFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_f
             openSearchScreen()
             return
         }
+
+        val trackInfo = viewModel.getTrackByAttempt()
 
         flBack.setOnClickListener { finish(R.id.fragmentSearch) }
 
@@ -81,7 +84,7 @@ class FoundSongFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_f
             groupLyrics.makeGone()
         }
 
-        viewModel.getTrackByAttempt().apply {
+        trackInfo.apply {
             tvLyricsTitle.text = trackName
             tvLyricsSubtitle.text = artistName
             tvLyricsText.text = this.trackLyrics
@@ -93,12 +96,15 @@ class FoundSongFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_f
             controllerShowTimeoutMs = 0
         }
 
-        playSong("https://cdns-preview-1.dzcdn.net/stream/c-16eae3e3768d0842408f2b2de918213c-4.mp3")
+        playSong(trackInfo.preview)
+
+        tvTrackAuthor.text = trackInfo.artistName
+        tvTrackName.text = trackInfo.trackName
+
+        Glide.with(requireActivity()).load(trackInfo.trackImage).into(ivAlbumPhoto)
     }
 
     private fun playSong(source: String) {
-        val trackInfo = viewModel.getTrackByAttempt()
-
         val audioSource = ProgressiveMediaSource.Factory(
             DefaultDataSourceFactory(
                 context,
@@ -108,8 +114,6 @@ class FoundSongFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_f
             .createMediaSource(Uri.parse(source))
         exoPlayer.prepare(audioSource)
         exoPlayer.playWhenReady
-
-        Glide.with(requireActivity()).load(trackInfo.trackImage).into(ivAlbumPhoto)
     }
 
     private fun openFailureScreen() {
