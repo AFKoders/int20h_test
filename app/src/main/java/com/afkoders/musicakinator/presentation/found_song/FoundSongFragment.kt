@@ -57,13 +57,13 @@ class FoundSongFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_f
 
         btnYes.setOnClickListener {
             viewModel.route(isAkinatorMadeRightGuess = true)
-            findNavController().navigate(FoundSongFragmentDirections.actionFragmentFoundSongToSuccessFragment())
+            openSuccessScreen()
         }
 
         btnNo.setOnClickListener {
             viewModel.update()
             when (val route = viewModel.route(isAkinatorMadeRightGuess = false)) {
-                is Interaction.Retry -> if (route.shouldRetry) openSuccessScreen() else openFailureScreen()
+                is Interaction.Retry -> if (route.shouldRetry) openRetryScreen() else openFailureScreen()
                 is Interaction.Failure -> openFailureScreen()
 
             }
@@ -77,16 +77,18 @@ class FoundSongFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_f
         btnLyrics.setOnClickListener {
             groupNotLyrics.makeGone()
             groupLyrics.makeVisible()
+            flGradient.makeVisible()
         }
 
         btnSong.setOnClickListener {
             groupNotLyrics.makeVisible()
             groupLyrics.makeGone()
+            flGradient.makeGone()
         }
 
         trackInfo.apply {
-            tvLyricsTitle.text = trackName
-            tvLyricsSubtitle.text = artistName
+            tvLyricsTitle.text = artistName
+            tvLyricsSubtitle.text = trackName
             tvLyricsText.text = this.trackLyrics
         }
 
@@ -113,21 +115,29 @@ class FoundSongFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_f
         )
             .createMediaSource(Uri.parse(source))
         exoPlayer.prepare(audioSource)
-        exoPlayer.playWhenReady
+        exoPlayer.playWhenReady = false
     }
 
     private fun openFailureScreen() {
-        exoPlayer.release()
+        exoPlayer.stop()
+        exoPlayer.seekTo(0)
         findNavController().navigate(FoundSongFragmentDirections.actionFragmentFoundSongToFailureFragment())
     }
 
     private fun openSuccessScreen() {
-        exoPlayer.release()
+        exoPlayer.stop()
+        exoPlayer.seekTo(0)
+        findNavController().navigate(FoundSongFragmentDirections.actionFragmentFoundSongToSuccessFragment())
+    }
+
+    private fun openRetryScreen() {
+        exoPlayer.stop()
+        exoPlayer.seekTo(0)
         findNavController().navigate(FoundSongFragmentDirections.actionFragmentFoundSongToRetryFragment())
     }
 
     private fun openSearchScreen() {
-        exoPlayer.release()
+        exoPlayer.stop()
         finish(R.id.fragmentSearch)
     }
 

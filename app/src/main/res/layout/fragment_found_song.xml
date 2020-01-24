@@ -27,6 +27,135 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/ivAlbumPhoto" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+
+    <TextView
+        android:id="@+id/tvIsSong"
+        style="@style/TextView.Secondary.Text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="@string/label_is_it_right_song"
+        android:textAllCaps="true"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnYes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnNo"
+        style="@style/Button.Secondary"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:padding="16dp"
+        android:text="@string/action_no"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnYes"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnYes"
+        style="@style/Button.Primary"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:padding="16dp"
+        android:text="@string/action_yes"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnNo" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="68dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvLyricsTitle"
+            style="@style/TextView.Primary.Text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Lyrics title" />
+
+        <TextView
+            android:id="@+id/tvLyricsSubtitle"
+            style="@style/TextView.Secondary.Text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvLyricsTitle"
+            tools:text="Lyrics subtitle" />
+
+        <TextView
+            android:id="@+id/tvLyricsText"
+            style="@style/TextView.Secondary.Message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:paddingBottom="70dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvLyricsSubtitle"
+            tools:text="Lyrics subtitle" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/groupLyrics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="tvLyricsTitle,tvLyricsSubtitle,tvLyricsText" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <FrameLayout
+        android:id="@+id/flGradient"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/gradient_history"
+        app:layout_constraintBottom_toBottomOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.19" />
+
     <FrameLayout
         android:id="@+id/flBack"
         android:layout_width="wrap_content"
@@ -63,6 +192,7 @@
         <com.google.android.material.chip.Chip
             android:id="@+id/btnSong"
             style="@style/Chip.Choice"
+            android:outlineProvider="none"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
@@ -71,98 +201,12 @@
         <com.google.android.material.chip.Chip
             android:id="@+id/btnLyrics"
             style="@style/Chip.Choice"
+            android:outlineProvider="none"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:text="@string/tab_lyrics" />
     </com.google.android.material.chip.ChipGroup>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5" />
-
-
-    <TextView
-        style="@style/TextView.Secondary.Text"
-        android:layout_width="0dp"
-        android:id="@+id/tvIsSong"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="16dp"
-        android:gravity="center"
-        android:text="@string/label_is_it_right_song"
-        android:textAllCaps="true"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnYes"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnNo"
-        style="@style/Button.Secondary"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:padding="16dp"
-        android:text="@string/action_no"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/btnYes"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnYes"
-        style="@style/Button.Primary"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:padding="16dp"
-        android:text="@string/action_yes"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btnNo" />
-
-    <TextView
-        android:id="@+id/tvLyricsTitle"
-        style="@style/TextView.Primary.Text"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chgTabs"
-        tools:text="Lyrics title" />
-
-    <TextView
-        android:id="@+id/tvLyricsSubtitle"
-        style="@style/TextView.Secondary.Text"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:textAllCaps="true"
-        android:textSize="22sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLyricsTitle"
-        tools:text="Lyrics subtitle" />
-
-    <TextView
-        android:id="@+id/tvLyricsText"
-        style="@style/TextView.Secondary.Message"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:textAllCaps="false"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLyricsSubtitle"
-        tools:text="Lyrics subtitle" />
 
     <com.google.android.exoplayer2.ui.PlayerView
         android:id="@+id/playerView"
@@ -171,21 +215,14 @@
         app:controller_layout_id="@layout/exo_playback_control_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:resize_mode="fixed_height"
-        app:layout_constraintTop_toBottomOf="@+id/flPhotoSature" />
+        app:layout_constraintTop_toBottomOf="@+id/flPhotoSature"
+        app:resize_mode="fixed_height" />
 
     <androidx.constraintlayout.widget.Group
-        android:id="@+id/groupLyrics"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:constraint_referenced_ids="tvLyricsTitle,tvLyricsSubtitle,tvLyricsText" />
-
-    <androidx.constraintlayout.widget.Group
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/groupNotLyrics"
-        app:constraint_referenced_ids="btnNo,btnYes,tvIsSong,playerView,flPhotoSature,ivAlbumPhoto"
-        />
-   </androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="btnNo,btnYes,tvIsSong,playerView,flPhotoSature,ivAlbumPhoto" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 
