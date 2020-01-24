@@ -20,7 +20,6 @@ class SearchViewModel @Inject constructor(
     private val speechRecognitionHelper: SpeechRecognitionHelper,
     @SchedulerUI private val schedulerUI: Scheduler,
     @SchedulerIO private val schedulerIO: Scheduler
-
 ) : ViewModel() {
     fun searchSongs(lyrics: String): Single<List<IntermixModelImpl>> =
         auddRepository
@@ -46,11 +45,8 @@ class SearchViewModel @Inject constructor(
         speechRecognitionHelper.stopListening()
     }
 
-    fun setupCallback(block: (text: String) -> Unit){
-        speechRecognitionHelper.setupRecognizingListener { block }
-    }
-
-    fun startListening() {
+    fun startListening(block: (text: String) -> Unit) {
+        speechRecognitionHelper.setupRecognizingListener (block)
         speechRecognitionHelper.startListening()
     }
 }

@@ -43,16 +43,11 @@ class SearchFragment : BaseFragment<SearchViewModel>(R.layout.fragment_search) {
             }
         }
 
-        viewModel.setupCallback {
-            typeSongEditText.setText(it)
-            typeSongEditText.requestFocus()
-            typeSongEditText.setSelection(typeSongEditText.text.toString().length)
-            typeSongEditText.showKeyboard()
-        }
 
         ivHistory.setOnClickListener {
             navigateTo(R.id.navigateToHistory)
         }
+
         ivVoiceInput.requestFocus()
         setupVoiceButton()
     }
@@ -63,6 +58,15 @@ class SearchFragment : BaseFragment<SearchViewModel>(R.layout.fragment_search) {
             setOnClickListener {
                 typeSongEditText.setText("")
             }
+        }
+    }
+
+    private val recognitionCallback: (text: String) -> Unit = {
+        typeSongEditText.apply {
+            setText(it)
+            requestFocus()
+            setSelection(typeSongEditText.text.toString().length)
+            showKeyboard()
         }
     }
 
@@ -78,7 +82,7 @@ class SearchFragment : BaseFragment<SearchViewModel>(R.layout.fragment_search) {
                         typeSongEditText.hint = getString(R.string.placeholder_whos_singing)
                     }
                     MotionEvent.ACTION_DOWN -> {
-                        viewModel.startListening()
+                        viewModel.startListening(recognitionCallback)
                         typeSongEditText.setText("")
                         typeSongEditText.hint = "Listening..."
                     }
