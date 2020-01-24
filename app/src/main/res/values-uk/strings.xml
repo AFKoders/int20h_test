@@ -39,4 +39,7 @@
         <item quantity="few">Але я маю ще %d спроби</item>
         <item quantity="many">Але я маю ще %d спроб</item>
     </plurals>
+
+    <!-- History -->
+    <string name="title_history">Історія пошуку</string>
 </resources>

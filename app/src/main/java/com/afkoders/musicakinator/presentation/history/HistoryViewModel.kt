@@ -1,7 +1,7 @@
 package com.afkoders.musicakinator.presentation.history
 
 import androidx.lifecycle.ViewModel
-import com.afkoders.musicakinator.data.prefs.HistoryModel
+import com.afkoders.musicakinator.data.prefs.History
 import com.afkoders.musicakinator.data.prefs.HistoryPrefs
 import com.afkoders.musicakinator.di.qualifiers.SchedulerIO
 import com.afkoders.musicakinator.di.qualifiers.SchedulerUI
@@ -16,11 +16,7 @@ class HistoryViewModel @Inject constructor(
     @SchedulerIO private val schedulerIO: Scheduler
 ) : ViewModel() {
 
-    fun addDataToHistory(data: List<HistoryModel>) {
-        historyPrefs.history = data
-    }
-
-    fun getHistoryPreferences(): Single<List<HistoryModel>> =
+    fun getHistoryPreferences(): Single<List<History>> =
         Single.just(historyPrefs.history)
             .subscribeOn(schedulerIO)
             .observeOn(schedulerUI)

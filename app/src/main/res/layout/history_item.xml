@@ -1,53 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <TextView
-        android:id="@+id/tvName"
-        style="@style/TextView.Secondary.Text"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/label_ask_me"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <TextView
-        android:id="@+id/tvAuthor"
-        style="@style/TextView.Secondary.Text"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/label_ask_me"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvName" />
-    <TextView
-        android:id="@+id/tvTime"
-        style="@style/TextView.Secondary.Text"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/label_ask_me"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvAuthor" />
-    <View
-        android:id="@+id/divider"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    android:background="@android:color/transparent">
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/colorPrimaryDark"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTime" >
-    </View>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="match_parent"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        app:cardBackgroundColor="@color/colorPrimaryDark"
+        app:cardCornerRadius="@dimen/history_item_corner_radius">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/ivMusicCoverContainer"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
+                android:foreground="@drawable/iv_rectangle_with_corners_dark"
+                android:padding="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivMusicCover"
+                    style="@style/ImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    tools:srcCompat="@drawable/test_image" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tvName"
+                style="@style/TextView.Primary.Text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivMusicCoverContainer"
+                app:layout_constraintTop_toTopOf="@+id/ivMusicCoverContainer"
+                tools:text="@string/label_ask_me" />
+
+            <TextView
+                android:id="@+id/tvAuthor"
+                style="@style/TextView.Secondary.Text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tvName"
+                app:layout_constraintTop_toBottomOf="@id/tvName"
+                tools:text="@string/label_ask_me" />
+
+            <TextView
+                android:id="@+id/tvTime"
+                style="@style/TextView.Secondary.Text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="8dp"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tvAuthor"
+                app:layout_constraintTop_toBottomOf="@id/tvAuthor"
+                tools:text="Apr 29, 4:11 PM" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/ctaOpenIn"
+                style="@style/Button.Secondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimary"
+                android:minHeight="20dp"
+                app:cornerRadius="10dp"
+                app:icon="@drawable/ic_deezer_logo"
+                app:iconTintMode="multiply"
+                app:layout_constraintBottom_toBottomOf="@+id/ivMusicCoverContainer"
+                app:layout_constraintEnd_toEndOf="@+id/tvTime"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tvTime"
+                app:layout_constraintTop_toBottomOf="@+id/tvTime" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>

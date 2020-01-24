@@ -18,12 +18,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             style="@style/ImageView"
-            android:padding="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="10dp"
             app:srcCompat="@drawable/ic_close" />
     </FrameLayout>
 
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:gravity="center"
-        android:text="@string/title_failure"
+        android:text="@string/title_success"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,7 +46,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/label_failure"
+        android:text="@string/label_success"
         android:textAlignment="center"
         android:textAllCaps="true"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,7 +66,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvSubtitleResult"
         app:layout_constraintVertical_bias="0.0">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivMusicCover"
             style="@style/ImageView"
             android:layout_width="match_parent"
@@ -80,6 +80,8 @@
         style="@style/TextView.Primary.Text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:gravity="center"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
@@ -92,6 +94,8 @@
         style="@style/TextView.Secondary.Text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:gravity="center"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
@@ -112,7 +116,7 @@
         android:textAllCaps="false"
         android:textSize="@dimen/tab_text_size"
         app:iconSize="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tvMusicAuthor"
         app:layout_constraintStart_toStartOf="@+id/tvMusicName"
         app:layout_constraintTop_toBottomOf="@+id/tvMusicAuthor" />
 

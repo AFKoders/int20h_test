@@ -12,17 +12,17 @@
         android:layout_marginStart="14dp"
         android:layout_marginTop="14dp"
         android:background="@drawable/iv_click_ripple_fix"
-        android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             style="@style/ImageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="10dp"
             app:srcCompat="@drawable/ic_close" />
     </FrameLayout>
 
