@@ -15,7 +15,7 @@
             android:id="@+id/navigateToLoading"
             app:destination="@id/loadingFragment"
             app:enterAnim="@anim/enter_from_right"
-            app:popExitAnim="@anim/exit_to_right" />
+            app:exitAnim="@anim/exit_to_left" />
         <action
             android:id="@+id/navigateToHistory"
             app:destination="@id/fragmentHistory"
@@ -39,13 +39,24 @@
         <action
             android:id="@+id/action_fragmentFoundSong_to_successFragment"
             app:destination="@id/successFragment"
-            app:popUpToInclusive="false" />
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:popEnterAnim="@anim/enter_alpha"
+            app:popExitAnim="@anim/exit_alpha" />
         <action
             android:id="@+id/action_fragmentFoundSong_to_retryFragment"
-            app:destination="@id/retryFragment" />
+            app:destination="@id/retryFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:popEnterAnim="@anim/enter_alpha"
+            app:popExitAnim="@anim/exit_alpha" />
         <action
             android:id="@+id/action_fragmentFoundSong_to_failureFragment"
-            app:destination="@id/failureFragment" />
+            app:destination="@id/failureFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:popEnterAnim="@anim/enter_alpha"
+            app:popExitAnim="@anim/exit_alpha" />
     </fragment>
 
     <fragment
@@ -61,10 +72,19 @@
         <action
             android:id="@+id/action_fragmentLoading_to_foundSongFragment"
             app:destination="@id/fragmentFoundSong"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:launchSingleTop="false"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_to_right"
             app:popUpTo="@id/fragmentSearch" />
         <action
             android:id="@+id/action_fragmentFoundSong_to_failureFragment"
             app:destination="@id/failureFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_to_right"
             app:popUpTo="@id/fragmentSearch" />
     </fragment>
 
