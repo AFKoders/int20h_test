@@ -1,10 +1,12 @@
 package com.afkoders.musicakinator.utils.extensions
 
 import android.content.Context
+import android.content.Intent
 import android.content.res.Resources
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
+import android.widget.Toast
 
 
 fun screenWidth(): Int = Resources.getSystem().displayMetrics.widthPixels
@@ -34,4 +36,16 @@ fun Context.isNetworkConnected(): Boolean {
     }
 
     return false
+}
+
+@JvmOverloads
+fun Context.startIntentOrShowAlert(
+    intent: Intent,
+    errorDialogText: String
+) {
+    if ((intent.resolveActivity(this.packageManager) != null) && intent.resolveActivityInfo(this.packageManager, intent.flags).exported) {
+        startActivity(intent)
+    } else {
+        Toast.makeText(this, errorDialogText,Toast.LENGTH_LONG).show()
+    }
 }
