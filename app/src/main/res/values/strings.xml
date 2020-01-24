@@ -10,7 +10,7 @@
 
     <!-- Search screen -->
     <string name="label_ask_me">Ask me</string>
-    <string name="label_whos_singing">Who’s singing?</string>
+    <string name="label_whos_singing">What\'s the song?</string>
     <string name="placeholder_whos_singing">Tap to enter text of the song</string>
 
     <!-- Loading screen -->
@@ -25,7 +25,7 @@
 
     <!-- Success screen -->
     <string name="title_success">WOO HOO!</string>
-    <string name="label_success">I was exactly right</string>
+    <string name="label_success">I\'m exactly right</string>
 
     <!-- Failure screen -->
     <string name="title_failure">OOH…</string>
