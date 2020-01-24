@@ -9,7 +9,7 @@ import com.afkoders.musicakinator.presentation.interation_with_akinator.Interact
 class RetryFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_result_retry) {
 
     override fun provideViewModel() =
-        ViewModelProviders.of(requireActivity())[InteractionViewModel::class.java]
+        ViewModelProviders.of(requireActivity(), viewModelFactory)[InteractionViewModel::class.java]
 
     override fun setupInputs() {
         // Empty

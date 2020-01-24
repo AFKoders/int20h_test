@@ -74,47 +74,5 @@
         app:layout_constraintEnd_toEndOf="@+id/typeSongEditText"
         app:layout_constraintTop_toTopOf="@+id/typeSongEditText" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/loadingBackgorund"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:visibility="gone"
-        android:background="@color/colorPrimary">
-
-
-        <TextView
-            android:id="@+id/tvTryToFind"
-            style="@style/TextView.Secondary.Text"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/label_try_to_find"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.35" />
-
-        <TextView
-            android:id="@+id/tvBestResult"
-            style="@style/TextView.Primary.Text"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginTop="8dp"
-            android:text="@string/label_the_best_results"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTryToFind" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,6 +1,5 @@
 package com.afkoders.musicakinator.presentation.search
 
-import android.util.Log
 import androidx.lifecycle.ViewModelProviders
 import com.afkoders.musicakinator.R
 import com.afkoders.musicakinator.presentation.BaseFragment
@@ -24,13 +23,10 @@ class SearchFragment : BaseFragment<SearchViewModel>(R.layout.fragment_search) {
         }
 
         typeSongEditText.addSearchWatcher {
-            viewModel.searchSongs(typeSongEditText.text.toString())
-                .subscribe { data, err ->
-                    Log.e("FUCK", "data: $data")
-                    navigateTo(R.id.navigateToFoundSong) {
-                        //                        putString(LYRICS_ARGUMENT, typeSongEditText.text.toString())
-                    }
-                }
+
+            navigateTo(R.id.navigateToLoading) {
+                putString(LYRICS_ARGUMENT, typeSongEditText.text.toString())
+            }
         }
     }
 
