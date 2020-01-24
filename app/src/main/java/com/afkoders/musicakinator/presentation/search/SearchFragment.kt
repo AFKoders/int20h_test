@@ -28,6 +28,10 @@ class SearchFragment : BaseFragment<SearchViewModel>(R.layout.fragment_search) {
                     }
                 }
         }
+
+        ivHistory.setOnClickListener {
+            navigateTo(R.id.navigateToHistory)
+        }
     }
 
     override fun provideViewModel(): SearchViewModel =

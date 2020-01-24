@@ -6,62 +6,175 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary">
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivAlbumPhoto"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivPhotoSature"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ivAlbumPhoto"
+        app:srcCompat="@drawable/gradient_found_song" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivBack"
+        style="@style/ImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_marginTop="24dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_arrow_left" />
+
+    <Button
+        android:id="@+id/btnSong"
+        style="@style/Button.Primary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:gravity="center"
+        android:text="@string/tab_song"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="@+id/ivBack"
+        app:layout_constraintStart_toEndOf="@+id/ivBack"
+        app:layout_constraintTop_toTopOf="@+id/ivBack" />
+
+    <Button
+        android:id="@+id/btnLyrics"
+        style="@style/Button.Secondary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:background="@color/transparent"
+        android:gravity="center"
+        android:text="@string/tab_lyrics"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="@+id/ivBack"
+        app:layout_constraintStart_toEndOf="@+id/btnSong"
+        app:layout_constraintTop_toTopOf="@+id/ivBack" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
     <TextView
-        android:id="@+id/tvFoundedSongTitle"
+        android:id="@+id/textView"
         style="@style/TextView.Primary.Text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:gravity="center"
-        android:textAlignment="center"
-        android:textColor="@color/colorPrimaryDark"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="there will be a player"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button"
-        style="@style/Button.Secondary"
-        android:layout_width="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/ivPhotoSature" />
+
+    <TextView
+
+        style="@style/TextView.Secondary.Text"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Audd request"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="@string/label_is_it_right_song"
+        android:textAllCaps="true"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnYes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnNo"
+        style="@style/Button.Secondary"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:padding="16dp"
+        android:text="@string/action_no"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnYes"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnYes"
+        style="@style/Button.Primary"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:padding="16dp"
+        android:text="@string/action_yes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@id/btnNo" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button1"
-        style="@style/Button.Secondary"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="success"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button2"
-        style="@style/Button.Secondary"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/tvLyricsTitle"
+        style="@style/TextView.Primary.Text"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="retry"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button3"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button1"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button3"
-        style="@style/Button.Secondary"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="failure"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="Lyrics title"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLyrics" />
+
+    <TextView
+        android:id="@+id/tvLyricsSubtitle"
+        style="@style/TextView.Secondary.Text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="Lyrics subtitle"
+        android:textAllCaps="true"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLyricsTitle" />
+
+    <TextView
+        android:id="@+id/tvLyricsText"
+        style="@style/TextView.Secondary.Message"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="Lyrics subtitle"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLyricsSubtitle" />
+
+    <androidx.constraintlayout.widget.Group
+        android:layout_width="wrap_content"
+        android:id="@+id/groupLyrics"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="tvLyricsTitle,tvLyricsSubtitle,tvLyricsText">
+    </androidx.constraintlayout.widget.Group>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+

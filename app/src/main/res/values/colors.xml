@@ -10,6 +10,7 @@
     <color name="placeholderTextColor">#C9C9D5</color>
 
     <color name="ctaPrimaryTextColor">#2449F2</color>
+    <color name="transparent">#fffffff</color>
     <color name="ctaSecondaryTextColor">#6A8FFF</color>
     <color name="ctaPrimaryBackgroundColor">#FFFFFF</color>
     <color name="ctaSecondaryBackgroundColor">#062BD4</color>
