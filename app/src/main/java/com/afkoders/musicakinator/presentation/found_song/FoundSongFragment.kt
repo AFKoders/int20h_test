@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.afkoders.musicakinator.R
 import com.afkoders.musicakinator.presentation.BaseFragment
+import com.afkoders.musicakinator.presentation.interation_with_akinator.Interaction
 import com.afkoders.musicakinator.presentation.interation_with_akinator.InteractionViewModel
 import kotlinx.android.synthetic.main.fragment_found_song.*
 
@@ -33,12 +34,20 @@ class FoundSongFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_f
 
     override fun setupInputs() {
         btnYes.setOnClickListener {
-            // TODO: add directions
+            viewModel.route(isAkinatorMadeRightGuess = true)
             findNavController().navigate(FoundSongFragmentDirections.actionFragmentFoundSongToSuccessFragment())
         }
 
         btnNo.setOnClickListener {
-            // TODO: add directions
+            viewModel.update()
+            when (viewModel.route(isAkinatorMadeRightGuess = false)) {
+                is Interaction.Retry -> {
+                    findNavController().navigate(FoundSongFragmentDirections.actionFragmentFoundSongToRetryFragment())
+                }
+                is Interaction.Failure -> {
+                    findNavController().navigate(FoundSongFragmentDirections.actionFragmentFoundSongToFailureFragment())
+                }
+            }
         }
 
         btnSong.chipBackgroundColor = ColorStateList(states, colors)

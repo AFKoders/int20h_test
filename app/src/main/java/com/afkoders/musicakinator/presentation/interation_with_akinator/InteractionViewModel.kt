@@ -27,15 +27,15 @@ class InteractionViewModel @Inject constructor(
 
     private val trackData = mutableListOf<Intermix>()
 
-    private var routeOnNextInteraction: Interaction = Interaction.Retry(normalizedId())
+    private var routeOnNextInteraction: Interaction = Interaction.Retry(attemptsCount)
 
     private fun updateAttemptsCount(shouldContinueGuessing: Boolean) {
-        attemptsCount = if (shouldContinueGuessing) attemptsCount.minus(1) else MAX_ATTEMPTS_COUNT
+        attemptsCount = if (shouldContinueGuessing) attemptsCount.minus(1) else maxAttempts
     }
 
     private fun updateRoute(shouldContinueGuessing: Boolean) {
         routeOnNextInteraction = if (shouldContinueGuessing) {
-            Interaction.Retry(normalizedId())
+            Interaction.Retry(attemptsCount)
         } else {
             Interaction.Failure
         }
@@ -64,6 +64,8 @@ class InteractionViewModel @Inject constructor(
         updateAttemptsCount(false)
         updateRoute(true)
         trackData.clear()
+        maxAttempts = MAX_ATTEMPTS_COUNT
+        attemptsCount = MAX_ATTEMPTS_COUNT
     }
 
     fun putItems(newTrackData: List<Intermix>) {

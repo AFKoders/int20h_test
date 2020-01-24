@@ -5,5 +5,4 @@ sealed class Interaction {
     data class Success(val intermix: Intermix) : Interaction()
     data class Retry(val retriesCount: Int) : Interaction()
     object Failure : Interaction()
-    object TrackPreview : Interaction()
 }

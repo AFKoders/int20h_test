@@ -13,7 +13,6 @@
         android:layout_marginStart="14dp"
         android:layout_marginTop="14dp"
         android:background="@drawable/iv_click_ripple_fix"
-        android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,6 +20,7 @@
 
         <ImageView
             style="@style/ImageView"
+            android:padding="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackgroundBorderless"
