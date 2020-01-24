@@ -5,15 +5,15 @@ import com.google.gson.annotations.SerializedName
 
 data class Song(
     @SerializedName("song_id")
-    val songId: String,
+    val songId: String? = "",
     @SerializedName("artist_id")
-    val artistId: String,
+    val artistId: String? = "",
     @SerializedName("title")
-    val title: String,
+    val title: String? = "",
     @SerializedName("artist")
-    val artist: String,
+    val artist: String? = "",
     @SerializedName("lyrics")
-    val lyrics: String,
+    val lyrics: String? = "",
     @SerializedName("full_title")
-    val fullTitle: String?
+    val fullTitle: String? = ""
 )

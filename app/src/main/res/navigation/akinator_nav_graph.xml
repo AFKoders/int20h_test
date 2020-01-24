@@ -12,8 +12,8 @@
         android:label="FragmentSearch"
         tools:layout="@layout/fragment_search">
         <action
-            android:id="@+id/navigateToFoundSong"
-            app:destination="@id/fragmentFoundSong"
+            android:id="@+id/navigateToLoading"
+            app:destination="@id/loadingFragment"
             app:enterAnim="@anim/enter_from_right"
             app:popExitAnim="@anim/exit_to_right" />
         <action
@@ -40,6 +40,24 @@
         <action
             android:id="@+id/action_fragmentFoundSong_to_retryFragment"
             app:destination="@id/retryFragment" />
+        <action
+            android:id="@+id/action_fragmentFoundSong_to_failureFragment"
+            app:destination="@id/failureFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/loadingFragment"
+        android:name="com.afkoders.musicakinator.presentation.interation_with_akinator.loading.LoadingFragment"
+        android:label="LoadingFragment"
+        tools:layout="@layout/fragment_loading" >
+        <argument
+            android:name="lyrics"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+        <action
+            android:id="@+id/action_fragmentLoading_to_foundSongFragment"
+            app:destination="@id/fragmentFoundSong" />
         <action
             android:id="@+id/action_fragmentFoundSong_to_failureFragment"
             app:destination="@id/failureFragment" />

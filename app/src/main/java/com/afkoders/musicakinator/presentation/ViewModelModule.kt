@@ -30,11 +30,6 @@ abstract class ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(SearchViewModel::class)
-    internal abstract fun searchViewModel(viewModel: SearchViewModel): ViewModel
-
-    @Binds
-    @IntoMap
     @ViewModelKey(HistoryViewModel::class)
     internal abstract fun historyViewModel(viewModel: HistoryViewModel): ViewModel
 }
