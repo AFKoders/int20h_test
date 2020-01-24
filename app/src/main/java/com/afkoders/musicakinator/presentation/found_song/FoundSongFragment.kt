@@ -11,6 +11,8 @@ import com.afkoders.musicakinator.presentation.interation_with_akinator.Interact
 import com.afkoders.musicakinator.presentation.interation_with_akinator.InteractionViewModel
 import com.afkoders.musicakinator.presentation.interation_with_akinator.InteractionViewModel.Companion.APP_NAME
 import com.afkoders.musicakinator.utils.extensions.finish
+import com.afkoders.musicakinator.utils.extensions.widget.makeGone
+import com.afkoders.musicakinator.utils.extensions.widget.makeVisible
 import com.bumptech.glide.Glide
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.source.ProgressiveMediaSource
@@ -55,13 +57,13 @@ class FoundSongFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_f
 
         btnYes.setOnClickListener {
             viewModel.route(isAkinatorMadeRightGuess = true)
-            findNavController().navigate(FoundSongFragmentDirections.actionFragmentFoundSongToSuccessFragment())
+            openSuccessScreen()
         }
 
         btnNo.setOnClickListener {
             viewModel.update()
             when (val route = viewModel.route(isAkinatorMadeRightGuess = false)) {
-                is Interaction.Retry -> if (route.shouldRetry) openSuccessScreen() else openFailureScreen()
+                is Interaction.Retry -> if (route.shouldRetry) openRetryScreen() else openFailureScreen()
                 is Interaction.Failure -> openFailureScreen()
 
             }
@@ -71,6 +73,24 @@ class FoundSongFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_f
 
         btnSong.chipBackgroundColor = ColorStateList(states, colors)
         btnLyrics.chipBackgroundColor = ColorStateList(states, colors)
+
+        btnLyrics.setOnClickListener {
+            groupNotLyrics.makeGone()
+            groupLyrics.makeVisible()
+            flGradient.makeVisible()
+        }
+
+        btnSong.setOnClickListener {
+            groupNotLyrics.makeVisible()
+            groupLyrics.makeGone()
+            flGradient.makeGone()
+        }
+
+        trackInfo.apply {
+            tvLyricsTitle.text = artistName
+            tvLyricsSubtitle.text = trackName
+            tvLyricsText.text = this.trackLyrics
+        }
 
         playerView.apply {
             this.player = exoPlayer
@@ -95,18 +115,29 @@ class FoundSongFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_f
         )
             .createMediaSource(Uri.parse(source))
         exoPlayer.prepare(audioSource)
-        exoPlayer.playWhenReady
+        exoPlayer.playWhenReady = false
     }
 
     private fun openFailureScreen() {
+        exoPlayer.stop()
+        exoPlayer.seekTo(0)
         findNavController().navigate(FoundSongFragmentDirections.actionFragmentFoundSongToFailureFragment())
     }
 
     private fun openSuccessScreen() {
+        exoPlayer.stop()
+        exoPlayer.seekTo(0)
+        findNavController().navigate(FoundSongFragmentDirections.actionFragmentFoundSongToSuccessFragment())
+    }
+
+    private fun openRetryScreen() {
+        exoPlayer.stop()
+        exoPlayer.seekTo(0)
         findNavController().navigate(FoundSongFragmentDirections.actionFragmentFoundSongToRetryFragment())
     }
 
     private fun openSearchScreen() {
+        exoPlayer.stop()
         finish(R.id.fragmentSearch)
     }
 

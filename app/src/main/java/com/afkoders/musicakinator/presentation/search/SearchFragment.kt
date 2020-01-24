@@ -10,10 +10,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.afkoders.musicakinator.R
 import com.afkoders.musicakinator.presentation.BaseFragment
-import com.afkoders.musicakinator.utils.extensions.widget.addSearchWatcher
-import com.afkoders.musicakinator.utils.extensions.widget.makeGone
-import com.afkoders.musicakinator.utils.extensions.widget.makeVisible
-import com.afkoders.musicakinator.utils.extensions.widget.showKeyboard
+import com.afkoders.musicakinator.utils.extensions.widget.*
 import kotlinx.android.synthetic.main.fragment_search.*
 
 
@@ -60,6 +57,7 @@ class SearchFragment : BaseFragment<SearchViewModel>(R.layout.fragment_search) {
         }
 
         typeSongEditText.addSearchWatcher {
+            typeSongEditText.hideKeyboard()
             findNavController().navigate(
                 SearchFragmentDirections.navigateToLoading(typeSongEditText.text.toString())
             )

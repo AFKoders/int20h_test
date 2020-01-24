@@ -9,8 +9,7 @@
     android:paddingEnd="16dp"
     android:layout_margin="0dp"
     android:background="@color/colorPrimary"
-    android:orientation="vertical"
-    tools:targetApi="28">
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -42,6 +41,8 @@
                 android:id="@+id/tvTrackName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:ellipsize="end"
                 style="@style/TextView.Secondary.Text"
                 tools:text="Withcraft" />
 
