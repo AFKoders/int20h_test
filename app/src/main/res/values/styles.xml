@@ -26,6 +26,8 @@
         <item name="android:textSize">@dimen/lyrics_text_size</item>
         <item name="android:textColor">@color/secondaryTextColor</item>
         <item name="android:fontFamily">@font/maven_pro_regular</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:gravity">center</item>
     </style>
 
     <style name="Tab.Text" parent="TextAppearance.AppCompat">

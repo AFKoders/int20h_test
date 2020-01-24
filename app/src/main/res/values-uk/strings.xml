@@ -8,7 +8,7 @@
 
     <!-- Search screen -->
     <string name="label_ask_me">Спитай мене</string>
-    <string name="label_whos_singing">Хто це співає?</string>
+    <string name="label_whos_singing">Що за пісня?</string>
     <string name="placeholder_whos_singing">Торкніться, щоб ввести текст пісні</string>
 
     <!-- Loading screen -->
@@ -23,7 +23,7 @@
 
     <!-- Success screen -->
     <string name="title_success">ЕХЕЙ!</string>
-    <string name="label_success">Я був абсолютно правий</string>
+    <string name="label_success">Я абсолютно правий</string>
 
     <!-- Failure screen -->
     <string name="title_failure">Оох…</string>
