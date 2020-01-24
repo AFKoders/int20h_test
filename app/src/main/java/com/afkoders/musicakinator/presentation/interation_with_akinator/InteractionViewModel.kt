@@ -123,5 +123,6 @@ class InteractionViewModel @Inject constructor(
 
     companion object {
         const val MAX_ATTEMPTS_COUNT = 5
+        const val APP_NAME = ".AkinatorApplication"
     }
 }
