@@ -14,4 +14,12 @@ class FoundSongFragment : BaseFragment<FoundSongViewModel>(R.layout.fragment_fou
     override fun provideViewModel(): FoundSongViewModel =
         ViewModelProviders.of(requireActivity(), viewModelFactory)[FoundSongViewModel::class.java]
 
+    override fun setupInputs() {
+        // Empty
+    }
+
+    override fun setupOutputs() {
+        // Empty
+    }
+
 }
