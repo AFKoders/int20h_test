@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/akinator_nav_graph"
-    app:startDestination="@id/fragmentHistory">
+    app:startDestination="@id/fragmentSearch">
 
     <fragment
         android:id="@+id/fragmentSearch"
@@ -80,6 +80,5 @@
         android:name="com.afkoders.musicakinator.presentation.interation_with_akinator.success.SuccessFragment"
         android:label="SuccessFragment"
         tools:layout="@layout/fragment_result_success" />
-
 </navigation>
 

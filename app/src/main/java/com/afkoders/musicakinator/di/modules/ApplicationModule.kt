@@ -8,6 +8,7 @@ import com.afkoders.musicakinator.data.service.AuddApiServiceModule
 import com.afkoders.musicakinator.data.service.DeezerApiServiceModule
 import com.afkoders.musicakinator.di.qualifiers.ApplicationContext
 import com.afkoders.musicakinator.di.scope.ApplicationScope
+import com.afkoders.musicakinator.utils.speechRecognition.SpeechRecognitionHelper
 import com.google.gson.Gson
 import dagger.Binds
 import dagger.Module
@@ -34,6 +35,13 @@ abstract class ApplicationModule {
         @JvmStatic
         fun provideHistoryPrefs(@ApplicationContext context: Context, gson: Gson): HistoryPrefs {
             return HistoryPrefs(context, gson)
+        }
+
+        @Provides
+        @ApplicationScope
+        @JvmStatic
+        fun provideSpeechRecognition(@ApplicationContext context: Context): SpeechRecognitionHelper {
+            return SpeechRecognitionHelper(context)
         }
     }
 }
