@@ -27,7 +27,7 @@
         android:id="@+id/fragmentHistory"
         android:name="com.afkoders.musicakinator.presentation.history.HistoryFragment"
         android:label="FragmentHistory"
-        tools:layout="@layout/fragment_history"/>
+        tools:layout="@layout/fragment_history" />
 
     <fragment
         android:id="@+id/fragmentFoundSong"

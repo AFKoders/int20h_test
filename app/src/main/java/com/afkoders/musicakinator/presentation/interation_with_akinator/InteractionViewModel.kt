@@ -18,10 +18,14 @@ class InteractionViewModel @Inject constructor(
     @SchedulerUI private val schedulerUI: Scheduler,
     @SchedulerIO private val schedulerIO: Scheduler
 ) : ViewModel() {
-    val trackData = mutableListOf<Intermix>()
 
     var attemptsCount: Int = MAX_ATTEMPTS_COUNT
         private set
+
+    var maxAttempts: Int = MAX_ATTEMPTS_COUNT
+        private set
+
+    private val trackData = mutableListOf<Intermix>()
 
     private var routeOnNextInteraction: Interaction = Interaction.Retry(normalizedId())
 
@@ -37,7 +41,7 @@ class InteractionViewModel @Inject constructor(
         }
     }
 
-    private fun normalizedId() = MAX_ATTEMPTS_COUNT - attemptsCount
+    private fun normalizedId() = maxAttempts - attemptsCount
 
     fun update() {
         val shouldContinueGuessing = attemptsCount > 0
@@ -59,6 +63,16 @@ class InteractionViewModel @Inject constructor(
     fun reset() {
         updateAttemptsCount(false)
         updateRoute(true)
+        trackData.clear()
+    }
+
+    fun putItems(newTrackData: List<Intermix>) {
+        check(newTrackData.size <= MAX_ATTEMPTS_COUNT) { "Size of tracks list should be less or equal to $MAX_ATTEMPTS_COUNT" }
+
+        trackData.addAll(newTrackData)
+
+        maxAttempts = newTrackData.size
+        attemptsCount = newTrackData.size
     }
 
     fun searchSongs(lyrics: String): Single<List<Intermix>> =
