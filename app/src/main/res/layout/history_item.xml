@@ -39,7 +39,7 @@
             </FrameLayout>
 
             <TextView
-                android:id="@+id/tvName"
+                android:id="@+id/tvTrackAuthor"
                 style="@style/TextView.Primary.Text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
                 tools:text="@string/label_ask_me" />
 
             <TextView
-                android:id="@+id/tvAuthor"
+                android:id="@+id/tvTrackName"
                 style="@style/TextView.Secondary.Text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -64,8 +64,8 @@
                 android:maxLines="1"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/tvName"
-                app:layout_constraintTop_toBottomOf="@id/tvName"
+                app:layout_constraintStart_toStartOf="@+id/tvTrackAuthor"
+                app:layout_constraintTop_toBottomOf="@id/tvTrackAuthor"
                 tools:text="@string/label_ask_me" />
 
             <TextView
@@ -77,12 +77,12 @@
                 android:layout_marginEnd="8dp"
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/tvAuthor"
-                app:layout_constraintTop_toBottomOf="@id/tvAuthor"
+                app:layout_constraintStart_toStartOf="@+id/tvTrackName"
+                app:layout_constraintTop_toBottomOf="@id/tvTrackName"
                 tools:text="Apr 29, 4:11 PM" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/ctaOpenIn"
+                android:id="@+id/ctaOpenInDeezer"
                 style="@style/Button.Secondary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
