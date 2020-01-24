@@ -2,15 +2,9 @@ package com.afkoders.musicakinator.presentation.search
 
 import android.Manifest.permission.RECORD_AUDIO
 import android.content.ContentValues.TAG
-import android.content.Intent
 import android.content.pm.PackageManager
-import android.os.Bundle
-import android.speech.RecognitionListener
-import android.speech.RecognizerIntent
-import android.speech.SpeechRecognizer
 import android.util.Log
 import android.view.MotionEvent
-import android.view.View
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
@@ -22,7 +16,6 @@ import com.afkoders.musicakinator.utils.extensions.addSearchWatcher
 import com.afkoders.musicakinator.utils.extensions.navigateTo
 import com.afkoders.musicakinator.utils.extensions.showKeyboard
 import kotlinx.android.synthetic.main.fragment_search.*
-import java.util.*
 
 /**
  * Created by Kalevych Oleksandr on 2020-01-22.
@@ -30,10 +23,7 @@ import java.util.*
 
 class SearchFragment : BaseFragment<SearchViewModel>(R.layout.fragment_search) {
 
-    var speechRecognizer: SpeechRecognizer? = null
-    var speechRecognizerIntent: Intent? = null
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun setupInputs() {
 
         typeSongEditText.addSearchWatcher {
             viewModel.searchSongs(typeSongEditText.text.toString())
@@ -45,20 +35,6 @@ class SearchFragment : BaseFragment<SearchViewModel>(R.layout.fragment_search) {
                 }
         }
 
-        speechRecognizer = SpeechRecognizer.createSpeechRecognizer(requireContext())
-
-        speechRecognizerIntent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-        speechRecognizerIntent?.putExtra(
-            RecognizerIntent.EXTRA_LANGUAGE_MODEL,
-            RecognizerIntent.LANGUAGE_MODEL_FREE_FORM
-        )
-        speechRecognizerIntent?.putExtra(
-            RecognizerIntent.EXTRA_LANGUAGE,
-            Locale.getDefault()
-        )
-
-        setupSpeechRecognition()
-
         typeSongEditText.addTextChangedListener {
             if (typeSongEditText.text.toString().isEmpty()) {
                 setupVoiceButton()
@@ -67,68 +43,18 @@ class SearchFragment : BaseFragment<SearchViewModel>(R.layout.fragment_search) {
             }
         }
 
+        viewModel.setupCallback {
+            typeSongEditText.setText(it)
+            typeSongEditText.requestFocus()
+            typeSongEditText.setSelection(typeSongEditText.text.toString().length)
+            typeSongEditText.showKeyboard()
+        }
+
         ivHistory.setOnClickListener {
             navigateTo(R.id.navigateToHistory)
         }
         ivVoiceInput.requestFocus()
         setupVoiceButton()
-    }
-
-    private fun setupSpeechRecognition() {
-        speechRecognizer?.setRecognitionListener(object : RecognitionListener {
-            override fun onReadyForSpeech(p0: Bundle?) {
-                Log.d("SpeechRecognition", "ready to speech")
-            }
-
-            override fun onRmsChanged(p0: Float) {
-                Log.d("SpeechRecognition", "rms")
-
-            }
-
-            override fun onBufferReceived(p0: ByteArray?) {
-                Log.d("SpeechRecognition", "buffer")
-            }
-
-            override fun onPartialResults(p0: Bundle?) {
-                Log.d("SpeechRecognition", "partial")
-            }
-
-            override fun onEvent(p0: Int, p1: Bundle?) {
-                Log.d("SpeechRecognition", "onEvent")
-            }
-
-            override fun onBeginningOfSpeech() {
-                Log.d("SpeechRecognition", "onBeginning")
-
-            }
-
-            override fun onEndOfSpeech() {
-                Log.d("SpeechRecognition", "onEnd")
-
-            }
-
-            override fun onError(p0: Int) {
-                Log.d("SpeechRecognition", "onError")
-
-            }
-
-            override fun onResults(p0: Bundle?) {
-                val matches = p0?.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
-                Log.d("SpeechRecognition", "result")
-
-                if (matches != null) {
-                    for (i in matches) {
-                        Log.d("SpeechRecognition", "rec " + i)
-                    }
-                }
-                //displaying the first match
-                if (matches != null)
-                    typeSongEditText.setText(matches[0])
-                typeSongEditText.requestFocus()
-                typeSongEditText.setSelection(typeSongEditText.text.toString().length)
-                typeSongEditText.showKeyboard()
-            }
-        })
     }
 
     private fun setupClearButton() {
@@ -145,14 +71,14 @@ class SearchFragment : BaseFragment<SearchViewModel>(R.layout.fragment_search) {
             setImageDrawable(ResourcesCompat.getDrawable(resources, R.drawable.ic_micro, null))
             setOnTouchListener { view, motionEvent ->
                 checkPermission()
-                setupSpeechRecognition()
+
                 when (motionEvent.action) {
                     MotionEvent.ACTION_UP -> {
-                        speechRecognizer?.stopListening()
+                        viewModel.stopListening()
                         typeSongEditText.hint = getString(R.string.placeholder_whos_singing)
                     }
                     MotionEvent.ACTION_DOWN -> {
-                        speechRecognizer?.startListening(speechRecognizerIntent)
+                        viewModel.startListening()
                         typeSongEditText.setText("")
                         typeSongEditText.hint = "Listening..."
                     }
@@ -163,8 +89,10 @@ class SearchFragment : BaseFragment<SearchViewModel>(R.layout.fragment_search) {
     }
 
     private fun checkPermission() {
-        val permission = ContextCompat.checkSelfPermission(requireContext(),
-            RECORD_AUDIO)
+        val permission = ContextCompat.checkSelfPermission(
+            requireContext(),
+            RECORD_AUDIO
+        )
 
         if (permission != PackageManager.PERMISSION_GRANTED) {
             Log.i(TAG, "Permission to record denied")
@@ -173,9 +101,11 @@ class SearchFragment : BaseFragment<SearchViewModel>(R.layout.fragment_search) {
     }
 
     private fun makeRequestForPermission() {
-        ActivityCompat.requestPermissions(requireActivity(),
+        ActivityCompat.requestPermissions(
+            requireActivity(),
             arrayOf(RECORD_AUDIO),
-            RECORD_REQUEST_CODE)
+            RECORD_REQUEST_CODE
+        )
     }
 
     override fun provideViewModel(): SearchViewModel =
@@ -184,5 +114,9 @@ class SearchFragment : BaseFragment<SearchViewModel>(R.layout.fragment_search) {
     companion object {
         const val LYRICS_ARGUMENT = "ARGUMENT.lyrics"
         const val RECORD_REQUEST_CODE = 393
+    }
+
+    override fun setupOutputs() {
+        // Empty
     }
 }

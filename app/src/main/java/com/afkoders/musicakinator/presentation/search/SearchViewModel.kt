@@ -8,6 +8,7 @@ import com.afkoders.musicakinator.di.qualifiers.SchedulerIO
 import com.afkoders.musicakinator.di.qualifiers.SchedulerUI
 import com.afkoders.musicakinator.presentation.interation_with_akinator.IntermixModel
 import com.afkoders.musicakinator.presentation.interation_with_akinator.IntermixModelImpl
+import com.afkoders.musicakinator.utils.speechRecognition.SpeechRecognitionHelper
 import io.reactivex.Scheduler
 import io.reactivex.Single
 import javax.inject.Inject
@@ -16,8 +17,10 @@ import javax.inject.Inject
 class SearchViewModel @Inject constructor(
     private val auddRepository: AuddRepository,
     private val deezerRepository: DeezerRepository,
+    private val speechRecognitionHelper: SpeechRecognitionHelper,
     @SchedulerUI private val schedulerUI: Scheduler,
     @SchedulerIO private val schedulerIO: Scheduler
+
 ) : ViewModel() {
     fun searchSongs(lyrics: String): Single<List<IntermixModelImpl>> =
         auddRepository
@@ -38,4 +41,16 @@ class SearchViewModel @Inject constructor(
             }
             .subscribeOn(schedulerIO)
             .observeOn(schedulerUI)
+
+    fun stopListening() {
+        speechRecognitionHelper.stopListening()
+    }
+
+    fun setupCallback(block: (text: String) -> Unit){
+        speechRecognitionHelper.setupRecognizingListener { block }
+    }
+
+    fun startListening() {
+        speechRecognitionHelper.startListening()
+    }
 }

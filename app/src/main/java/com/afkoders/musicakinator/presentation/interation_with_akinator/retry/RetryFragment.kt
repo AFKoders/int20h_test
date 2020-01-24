@@ -11,4 +11,12 @@ class RetryFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_resul
     override fun provideViewModel() =
         ViewModelProviders.of(requireActivity())[InteractionViewModel::class.java]
 
+    override fun setupInputs() {
+        // Empty
+    }
+
+    override fun setupOutputs() {
+        // Empty
+    }
+
 }
