@@ -31,7 +31,7 @@ class HistoryPrefs constructor(context: Context, val gson: Gson) {
         get() = gson.fromJson(
             prefs.getString(HISTORY_LIST, ""),
             object : TypeToken<List<History>>() {}.type
-        )
+        )?: arrayListOf()
 
     fun clear() {
         prefs.edit().clear().apply()
