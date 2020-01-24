@@ -100,7 +100,7 @@
         tools:text="Witchcraft" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/ctaOpenIn"
+        android:id="@+id/ctaOpenInDeezer"
         style="@style/Button.Secondary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
