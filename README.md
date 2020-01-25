@@ -65,7 +65,7 @@
 
 <p align="center">
 	<kbd>
- 		<img src="https://github.com/AFKoders/int20h_test/blob/readme/assets/4.png" alt="4" width="720" height="80"/>
+ 		<img src="https://github.com/AFKoders/int20h_test/blob/readme/assets/4.png" alt="4" width="720" height="90"/>
 	</kbd>
 </p>
 
