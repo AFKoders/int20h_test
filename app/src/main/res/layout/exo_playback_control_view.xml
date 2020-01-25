@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingStart="16dp"
-    android:paddingEnd="16dp"
+    android:layout_height="match_parent"
     android:layout_margin="0dp"
     android:background="@color/colorPrimary"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -17,8 +16,8 @@
         android:layout_height="wrap_content"
         android:gravity="end"
         android:orientation="horizontal"
-        android:paddingTop="4dp"
         android:paddingStart="8dp"
+        android:paddingTop="4dp"
         android:paddingEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,72 +25,70 @@
 
         <LinearLayout
             android:layout_width="0dp"
-            android:orientation="vertical"
+            android:layout_height="wrap_content"
             android:layout_weight="0.1"
-            android:layout_height="wrap_content">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/tvTrackAuthor"
+                style="@style/TextView.Primary.Text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/TextView.Primary.Text"
                 tools:text="Pendulum" />
 
             <TextView
                 android:id="@+id/tvTrackName"
+                style="@style/TextView.Secondary.Text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:maxLines="2"
                 android:ellipsize="end"
-                style="@style/TextView.Secondary.Text"
+                android:maxLines="2"
                 tools:text="Withcraft" />
 
         </LinearLayout>
 
-        <com.google.android.material.button.MaterialButton
+        <androidx.appcompat.widget.AppCompatImageButton
             android:id="@id/exo_play"
-            android:layout_width="48dp"
-            android:layout_height="60dp"
-            app:cornerRadius="12dp"
-            android:background="@color/colorAccent"
-            android:backgroundTint="@color/colorAccent"
-            app:icon="@drawable/ic_play_music"
-            app:iconTint="@color/colorPrimary" />
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@drawable/round_rect"
+            android:src="@drawable/ic_play_music"
+            android:tint="@color/colorPrimary" />
 
-        <com.google.android.material.button.MaterialButton
+        <androidx.appcompat.widget.AppCompatImageButton
             android:id="@id/exo_pause"
-            android:layout_width="48dp"
-            android:layout_height="60dp"
-            app:cornerRadius="12dp"
-            android:backgroundTint="@color/colorAccent"
-            app:icon="@drawable/ic_pause_music"
-            app:iconTint="@color/colorPrimary" />
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@drawable/round_rect"
+            android:src="@drawable/ic_pause_music"
+            android:tint="@color/colorPrimary" />
     </LinearLayout>
 
     <TextView
         android:id="@id/exo_position"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/maven_pro_regular"
         android:includeFontPadding="false"
         android:paddingLeft="4dp"
         android:paddingRight="4dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:textColor="@color/ctaSecondaryTextColor"
         android:textSize="12sp"
-        android:fontFamily="@font/maven_pro_regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
-    <com.google.android.exoplayer2.ui.DefaultTimeBar
+    <com.afkoders.musicakinator.presentation.custom.AudioProgressBar
         android:id="@+id/exo_progress"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:bar_height="10dp"
-        app:unplayed_color="@color/colorPrimaryDark"
         app:buffered_color="@color/colorPrimaryDark"
-        app:scrubber_drawable="@drawable/ic_slider_point"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/exo_position" />
+        app:layout_constraintTop_toBottomOf="@id/exo_position"
+        app:scrubber_drawable="@drawable/ic_slider_point"
+        app:unplayed_color="@color/colorPrimaryDark" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

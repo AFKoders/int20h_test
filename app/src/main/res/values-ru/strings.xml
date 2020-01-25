@@ -42,4 +42,5 @@
 
     <!-- History -->
     <string name="title_history">История поиска</string>
+    <string name="title_history_empty">Похоже вы\nничего не искали</string>
 </resources>

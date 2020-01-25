@@ -19,7 +19,8 @@ abstract class BaseFragment<T : ViewModel>(@LayoutRes val layoutRes: Int) : Dagg
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    @Inject lateinit var compositeDisposable: CompositeDisposable
+    @Inject
+    lateinit var compositeDisposable: CompositeDisposable
 
     override fun onCreateView(
         inflater: LayoutInflater,

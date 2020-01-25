@@ -74,7 +74,7 @@ class SpeechRecognitionHelper constructor(context: Context) {
                 }
                 //displaying the first match
                 if (matches != null)
-                 block.invoke(matches[0])
+                    block.invoke(matches[0])
             }
         })
     }

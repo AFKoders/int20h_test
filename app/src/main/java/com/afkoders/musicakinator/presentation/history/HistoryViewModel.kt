@@ -20,4 +20,8 @@ class HistoryViewModel @Inject constructor(
         Single.just(historyPrefs.history)
             .subscribeOn(schedulerIO)
             .observeOn(schedulerUI)
+
+    fun clearHistory() {
+        historyPrefs.clear()
+    }
 }

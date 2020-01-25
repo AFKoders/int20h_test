@@ -26,21 +26,21 @@ class SearchFragment : BaseFragment<SearchViewModel>(R.layout.fragment_search) {
         }
 
         ivVoiceInput.setOnTouchListener { _, motionEvent ->
-                checkPermission()
+            checkPermission()
 
-                when (motionEvent.action) {
-                    MotionEvent.ACTION_UP -> {
-                        viewModel.stopListening()
-                        typeSongEditText.hint = getString(R.string.placeholder_whos_singing)
-                    }
-                    MotionEvent.ACTION_DOWN -> {
-                        viewModel.startListening(recognitionCallback)
-                        typeSongEditText.setText("")
-                        typeSongEditText.hint = "Listening..."
-                    }
+            when (motionEvent.action) {
+                MotionEvent.ACTION_UP -> {
+                    viewModel.stopListening()
+                    typeSongEditText.hint = getString(R.string.placeholder_whos_singing)
                 }
-                return@setOnTouchListener true
+                MotionEvent.ACTION_DOWN -> {
+                    viewModel.startListening(recognitionCallback)
+                    typeSongEditText.setText("")
+                    typeSongEditText.hint = "Listening..."
+                }
             }
+            return@setOnTouchListener true
+        }
 
         typeSongEditText.addTextChangedListener {
             if (typeSongEditText.text.toString().isBlank()) {

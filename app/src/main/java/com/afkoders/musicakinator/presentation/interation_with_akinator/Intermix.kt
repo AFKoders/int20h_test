@@ -10,7 +10,7 @@ open class Intermix(
     val trackLyrics: String,
     val trackImage: String,
     val artistName: String,
-    val preview:String
+    val preview: String
 ) {
     fun toHistory(time: String): History {
         return History(
