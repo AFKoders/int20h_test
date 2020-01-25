@@ -23,8 +23,8 @@ class RetryFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_resul
             route.retriesCount
         )
 
-        ctaRetry.setOnClickListener { finish() }
-        ivCloseResults.setOnClickListener { finish() }
+        ctaRetry.bindClick { finish() }
+        ivCloseResults.bindClick { finish() }
     }
 
     override fun setupOutputs() {

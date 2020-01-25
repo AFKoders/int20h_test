@@ -4,7 +4,9 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.afkoders.musicakinator.R
 import com.afkoders.musicakinator.presentation.BaseFragment
+import com.afkoders.musicakinator.utils.extensions.finish
 import com.afkoders.musicakinator.utils.extensions.widget.makeVisibleOrGone
+import com.jakewharton.rxbinding2.view.RxView
 import kotlinx.android.synthetic.main.fragment_history.*
 
 /**
@@ -27,11 +29,9 @@ class HistoryFragment : BaseFragment<HistoryViewModel>(R.layout.fragment_history
                 toggleEmptyState()
             }.disposeByBagProvider()
 
-        flBack.setOnClickListener {
-            findNavController().navigate(HistoryFragmentDirections.actionFragmentHistoryToFragmentSearch())
-        }
+        flBack.bindClick { finish() }
 
-        flCleanHistory.setOnClickListener {
+        flCleanHistory.bindClick {
             viewModel.clearHistory()
             adapter.clear()
             toggleEmptyState()

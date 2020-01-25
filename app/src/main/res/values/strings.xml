@@ -44,5 +44,5 @@
 
     <!-- History -->
     <string name="title_history">History</string>
-    <string name="title_history_empty">Seems like\nyou don\'t search anything</string>
+    <string name="title_history_empty">Seems like\nyou haven\'t search anything</string>
 </resources>

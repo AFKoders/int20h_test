@@ -8,6 +8,8 @@ import androidx.annotation.LayoutRes
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.afkoders.musicakinator.utils.extensions.disposeBy
+import com.afkoders.musicakinator.utils.extensions.throttleFirst
+import com.jakewharton.rxbinding2.view.RxView
 import dagger.android.support.DaggerFragment
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
@@ -39,6 +41,11 @@ abstract class BaseFragment<T : ViewModel>(@LayoutRes val layoutRes: Int) : Dagg
     }
 
     fun Disposable.disposeByBagProvider() = disposeBy(compositeDisposable)
+
+    protected fun View.bindClick(block: ()-> Unit) = RxView.clicks(this)
+        .throttleFirst()
+        .subscribe { block.invoke() }
+        .disposeByBagProvider()
 
     override fun onDestroy() {
         compositeDisposable.clear()

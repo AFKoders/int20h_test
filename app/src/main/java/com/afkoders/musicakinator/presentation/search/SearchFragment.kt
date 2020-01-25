@@ -21,7 +21,7 @@ class SearchFragment : BaseFragment<SearchViewModel>(R.layout.fragment_search) {
             findNavController().navigate(SearchFragmentDirections.navigateToLoading(typeSongEditText.text.toString()))
         }
 
-        ivClearInput.setOnClickListener {
+        ivClearInput.bindClick {
             typeSongEditText.erase()
         }
 
@@ -52,7 +52,7 @@ class SearchFragment : BaseFragment<SearchViewModel>(R.layout.fragment_search) {
             }
         }
 
-        flHistory.setOnClickListener {
+        flHistory.bindClick {
             typeSongEditText.hideKeyboard()
             findNavController().navigate(SearchFragmentDirections.navigateToHistory())
         }
