@@ -4,6 +4,7 @@ import android.content.res.ColorStateList
 import android.net.Uri
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.afkoders.musicakinator.R
 import com.afkoders.musicakinator.presentation.BaseFragment
@@ -44,6 +45,12 @@ class FoundSongFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_f
 
     override fun provideViewModel() =
         ViewModelProviders.of(requireActivity(), viewModelFactory)[InteractionViewModel::class.java]
+
+    override fun onStop() {
+        super.onStop()
+        exoPlayer.stop()
+        exoPlayer.seekTo(0)
+    }
 
     override fun setupInputs() {
         if (!viewModel.isTracksCompatible()) {
@@ -119,20 +126,19 @@ class FoundSongFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_f
     }
 
     private fun openFailureScreen() {
-        exoPlayer.stop()
-        exoPlayer.seekTo(0)
-        findNavController().navigate(FoundSongFragmentDirections.actionFragmentFoundSongToFailureFragment())
+
+        findNavController().navigate(FoundSongFragmentDirections.actionFragmentFoundSongToFailureFragment(),
+            NavOptions.Builder().setPopUpTo(R.id.fragmentFoundSong, true).build())
     }
 
     private fun openSuccessScreen() {
-        exoPlayer.stop()
-        exoPlayer.seekTo(0)
-        findNavController().navigate(FoundSongFragmentDirections.actionFragmentFoundSongToSuccessFragment())
+
+        findNavController().navigate(FoundSongFragmentDirections.actionFragmentFoundSongToSuccessFragment(),
+           NavOptions.Builder().setPopUpTo(R.id.fragmentFoundSong, true).build()
+        )
     }
 
     private fun openRetryScreen() {
-        exoPlayer.stop()
-        exoPlayer.seekTo(0)
         findNavController().navigate(FoundSongFragmentDirections.actionFragmentFoundSongToRetryFragment())
     }
 

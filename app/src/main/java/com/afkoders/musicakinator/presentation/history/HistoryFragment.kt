@@ -33,7 +33,7 @@ class HistoryFragment : BaseFragment<HistoryViewModel>(R.layout.fragment_history
 
         flCleanHistory.setOnClickListener {
             viewModel.clearHistory()
-            adapter.notifyDataSetChanged()
+            adapter.clear()
             toggleEmptyState()
         }
     }
