@@ -28,7 +28,7 @@
 
 <p align="center">
 	<kbd>
- 		<img src="https://github.com/AFKoders/int20h_test/tree/master/assets/preview.gif" alt="preview gif" width="300" height="570"/>
+ 		<img src="https://github.com/AFKoders/int20h_test/blob/readme/assets/preview.gif" alt="preview gif" width="300" height="570"/>
 	</kbd>
 </p>
 
@@ -38,7 +38,7 @@
 
 <p align="center">
 	<kbd>
- 		<img src="https://github.com/AFKoders/int20h_test/tree/readme/assets/1.png" alt="1" width="300" height="570"/>
+ 		<img src="https://github.com/AFKoders/int20h_test/blob/readme/assets/1.png" alt="1" width="300" height="570"/>
 	</kbd>
 </p>
 
@@ -48,7 +48,7 @@
 
 <p align="center">
 	<kbd>
- 		<img src="https://github.com/AFKoders/int20h_test/tree/readme/assets/2.png" alt="2" width="300" height="570"/>
+ 		<img src="https://github.com/AFKoders/int20h_test/blob/readme/assets/2.png" alt="2" width="300" height="570"/>
 	</kbd>
 </p>
 
@@ -57,7 +57,7 @@
 
 <p align="center">
 	<kbd>
- 		<img src="https://github.com/AFKoders/int20h_test/tree/readme/assets/3.png" alt="3" width="300" height="570"/>
+ 		<img src="https://github.com/AFKoders/int20h_test/blob/readme/assets/3.png" alt="3" width="300" height="570"/>
 	</kbd>
 </p>
 
@@ -65,7 +65,7 @@
 
 <p align="center">
 	<kbd>
- 		<img src="https://github.com/AFKoders/int20h_test/tree/readme/assets/4.png" alt="4" width="300" height="570"/>
+ 		<img src="https://github.com/AFKoders/int20h_test/blob/readme/assets/4.png" alt="4" width="300" height="570"/>
 	</kbd>
 </p>
 
@@ -73,7 +73,7 @@
 
 <p align="center">
 	<kbd>
- 		<img src="https://github.com/AFKoders/int20h_test/tree/readme/assets/5.png" alt="5" width="300" height="570"/>
+ 		<img src="https://github.com/AFKoders/int20h_test/blob/readme/assets/5.png" alt="5" width="300" height="570"/>
 	</kbd>
 </p>
 
@@ -82,7 +82,7 @@
 
 <p align="center">
 	<kbd>
- 		<img src="https://github.com/AFKoders/int20h_test/tree/readme/assets/6.png" alt="6" width="300" height="570"/>
+ 		<img src="https://github.com/AFKoders/int20h_test/blob/readme/assets/6.png" alt="6" width="300" height="570"/>
 	</kbd>
 </p>
 
@@ -90,7 +90,7 @@
 
 <p align="center">
 	<kbd>
- 		<img src="https://github.com/AFKoders/int20h_test/tree/readme/assets/7.png" alt="7" width="300" height="570"/>
+ 		<img src="https://github.com/AFKoders/int20h_test/blob/readme/assets/7.png" alt="7" width="300" height="570"/>
 	</kbd>
 </p>
 
@@ -98,7 +98,7 @@
 
 <p align="center">
 	<kbd>
- 		<img src="https://github.com/AFKoders/int20h_test/tree/readme/assets/8.png" alt="8" width="300" height="570"/>
+ 		<img src="https://github.com/AFKoders/int20h_test/blob/readme/assets/8.png" alt="8" width="300" height="570"/>
 	</kbd>
 </p>
 
