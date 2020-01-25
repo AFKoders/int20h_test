@@ -13,12 +13,6 @@ fun Int.dpToPx(context: Context): Int = (this * context.resources.displayMetrics
 
 fun Int.spToPx(): Int = (this * Resources.getSystem().displayMetrics.scaledDensity).toInt()
 
-fun screenWidth(): Int = Resources.getSystem().displayMetrics.widthPixels
-
-fun screenHeight(): Int = Resources.getSystem().displayMetrics.heightPixels
-
-fun buildVersionGE(version: Int): Boolean = Build.VERSION.SDK_INT >= version
-
 fun Context.isNetworkConnected(): Boolean {
     val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as? ConnectivityManager
 

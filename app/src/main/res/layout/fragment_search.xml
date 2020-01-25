@@ -54,28 +54,41 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvAskMe" />
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/typeSongEditText"
-        android:layout_width="match_parent"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilTypeSongEditText"
+        style="@style/EditText"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="24dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/edittext_background_white_rounded_corners"
-        android:focusableInTouchMode="true"
-        android:hint="@string/placeholder_whos_singing"
-        android:imeOptions="actionSearch"
-        android:inputType="text"
-        android:minHeight="64dp"
-        android:padding="16dp"
-        android:paddingEnd="48dp"
-        android:textCursorDrawable="@color/cardview_dark_background"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:hintEnabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTitleResult"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/typeSongEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:fontFamily="@font/maven_pro_medium"
+            android:hint="@string/placeholder_whos_singing"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:minHeight="64dp"
+            android:padding="16dp"
+            android:paddingEnd="48dp"
+            android:textColor="@color/inputTextColor"
+            android:textColorHint="@color/placeholderTextColor"
+            android:textCursorDrawable="@drawable/cursor"
+            android:textSize="@dimen/secondary_text_size" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivVoiceInput"
@@ -83,9 +96,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="0dp"
         android:padding="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/typeSongEditText"
-        app:layout_constraintEnd_toEndOf="@+id/typeSongEditText"
-        app:layout_constraintTop_toTopOf="@+id/typeSongEditText"
+        app:layout_constraintBottom_toBottomOf="@+id/tilTypeSongEditText"
+        app:layout_constraintEnd_toEndOf="@+id/tilTypeSongEditText"
+        app:layout_constraintTop_toTopOf="@+id/tilTypeSongEditText"
         app:srcCompat="@drawable/ic_micro" />
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -96,9 +109,9 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="20dp"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/typeSongEditText"
-        app:layout_constraintEnd_toEndOf="@+id/typeSongEditText"
-        app:layout_constraintTop_toTopOf="@+id/typeSongEditText"
-        app:srcCompat="@drawable/ic_close_gray" />
+        app:layout_constraintBottom_toBottomOf="@+id/tilTypeSongEditText"
+        app:layout_constraintEnd_toEndOf="@+id/tilTypeSongEditText"
+        app:layout_constraintTop_toTopOf="@+id/tilTypeSongEditText"
+        app:srcCompat="@drawable/ic_clean" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 

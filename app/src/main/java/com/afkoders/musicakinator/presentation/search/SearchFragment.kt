@@ -22,7 +22,7 @@ class SearchFragment : BaseFragment<SearchViewModel>(R.layout.fragment_search) {
         }
 
         ivClearInput.setOnClickListener {
-            typeSongEditText.setText("")
+            typeSongEditText.erase()
         }
 
         ivVoiceInput.setOnTouchListener { _, motionEvent ->
@@ -35,8 +35,8 @@ class SearchFragment : BaseFragment<SearchViewModel>(R.layout.fragment_search) {
                 }
                 MotionEvent.ACTION_DOWN -> {
                     viewModel.startListening(recognitionCallback)
-                    typeSongEditText.setText("")
-                    typeSongEditText.hint = "Listening..."
+                    typeSongEditText.erase()
+                    typeSongEditText.hint = getString(R.string.placeholder_input_listening)
                 }
             }
             return@setOnTouchListener true
@@ -53,6 +53,7 @@ class SearchFragment : BaseFragment<SearchViewModel>(R.layout.fragment_search) {
         }
 
         flHistory.setOnClickListener {
+            typeSongEditText.hideKeyboard()
             findNavController().navigate(SearchFragmentDirections.navigateToHistory())
         }
 
@@ -62,7 +63,7 @@ class SearchFragment : BaseFragment<SearchViewModel>(R.layout.fragment_search) {
                 SearchFragmentDirections.navigateToLoading(typeSongEditText.text.toString())
             )
             ivVoiceInput.requestFocus()
-            typeSongEditText.setText("")
+            typeSongEditText.erase()
         }
     }
 

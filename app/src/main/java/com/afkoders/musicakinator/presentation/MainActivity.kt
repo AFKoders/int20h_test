@@ -1,6 +1,7 @@
 package com.afkoders.musicakinator.presentation
 
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.WindowManager
@@ -11,10 +12,11 @@ import dagger.android.support.DaggerAppCompatActivity
 
 class MainActivity : DaggerAppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-        )
+        with(window) {
+            addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+            clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+            statusBarColor = Color.TRANSPARENT
+        }
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -26,9 +28,7 @@ class MainActivity : DaggerAppCompatActivity() {
     ) {
         when (requestCode) {
             RECORD_REQUEST_CODE -> {
-
                 if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
-
                     Log.i("Permissions", "Permission has been denied by user")
                 } else {
                     Log.i("Permissions", "Permission has been granted by user")
