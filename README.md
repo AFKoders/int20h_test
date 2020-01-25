@@ -38,7 +38,7 @@
 
 <p align="center">
 	<kbd>
- 		<img src="https://github.com/AFKoders/int20h_test/blob/readme/assets/1.png" alt="1" width="720" height="190"/>
+ 		<img src="https://github.com/AFKoders/int20h_test/blob/readme/assets/1.png" alt="1" width="720" height="245"/>
 	</kbd>
 </p>
 
@@ -48,7 +48,7 @@
 
 <p align="center">
 	<kbd>
- 		<img src="https://github.com/AFKoders/int20h_test/blob/readme/assets/2.png" alt="2" width="510" height="220"/>
+ 		<img src="https://github.com/AFKoders/int20h_test/blob/readme/assets/2.png" alt="2" width="510" height="270"/>
 	</kbd>
 </p>
 
@@ -57,7 +57,7 @@
 
 <p align="center">
 	<kbd>
- 		<img src="https://github.com/AFKoders/int20h_test/blob/readme/assets/3.png" alt="3" width="510" height="220"/>
+ 		<img src="https://github.com/AFKoders/int20h_test/blob/readme/assets/3.png" alt="3" width="510" height="270"/>
 	</kbd>
 </p>
 
