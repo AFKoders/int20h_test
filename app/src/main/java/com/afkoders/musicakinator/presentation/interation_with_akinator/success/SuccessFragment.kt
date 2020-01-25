@@ -18,13 +18,12 @@ class SuccessFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_res
         ViewModelProviders.of(requireActivity(), viewModelFactory)[InteractionViewModel::class.java]
 
     override fun setupInputs() {
-        ivCloseResults.setOnClickListener { finish(R.id.fragmentSearch) }
-        ctaBackToSearch.setOnClickListener { finish(R.id.fragmentSearch) }
+        ivCloseResults.bindClick { finish(R.id.fragmentSearch) }
+        ctaBackToSearch.bindClick { finish(R.id.fragmentSearch) }
 
         val trackInfo = viewModel.getTrackByAttempt()
 
-
-        ctaOpenInDeezer.setOnClickListener {
+        ctaOpenInDeezer.bindClick {
             requireActivity().startIntentOrShowAlert(
                 Intent(Intent.ACTION_VIEW, Uri.parse(trackInfo.openInDeezerLink)),
                 getString(R.string.error_no_browser_app)

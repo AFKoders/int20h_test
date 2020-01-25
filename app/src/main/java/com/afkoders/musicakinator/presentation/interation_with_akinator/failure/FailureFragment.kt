@@ -14,8 +14,8 @@ class FailureFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_res
         ViewModelProviders.of(requireActivity(), viewModelFactory)[InteractionViewModel::class.java]
 
     override fun setupInputs() {
-        ivCloseResults.setOnClickListener { finish(R.id.fragmentSearch) }
-        ctaBackToSearch.setOnClickListener { finish(R.id.fragmentSearch) }
+        ivCloseResults.bindClick { finish(R.id.fragmentSearch) }
+        ctaBackToSearch.bindClick { finish(R.id.fragmentSearch) }
     }
 
     override fun setupOutputs() {

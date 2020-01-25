@@ -60,14 +60,14 @@ class FoundSongFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_f
 
         val trackInfo = viewModel.getTrackByAttempt()
 
-        flBack.setOnClickListener { finish(R.id.fragmentSearch) }
+        flBack.bindClick { finish(R.id.fragmentSearch) }
 
-        btnYes.setOnClickListener {
+        btnYes.bindClick {
             viewModel.route(isAkinatorMadeRightGuess = true)
             openSuccessScreen()
         }
 
-        btnNo.setOnClickListener {
+        btnNo.bindClick {
             viewModel.update()
             when (val route = viewModel.route(isAkinatorMadeRightGuess = false)) {
                 is Interaction.Retry -> if (route.shouldRetry) openRetryScreen() else openFailureScreen()
@@ -76,18 +76,18 @@ class FoundSongFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_f
             }
         }
 
-        flBack.setOnClickListener { openSearchScreen() }
+        flBack.bindClick { openSearchScreen() }
 
         btnSong.chipBackgroundColor = ColorStateList(states, colors)
         btnLyrics.chipBackgroundColor = ColorStateList(states, colors)
 
-        btnLyrics.setOnClickListener {
+        btnLyrics.bindClick {
             groupNotLyrics.makeGone()
             groupLyrics.makeVisible()
             flGradient.makeVisible()
         }
 
-        btnSong.setOnClickListener {
+        btnSong.bindClick {
             groupNotLyrics.makeVisible()
             groupLyrics.makeGone()
             flGradient.makeGone()
@@ -126,16 +126,11 @@ class FoundSongFragment : BaseFragment<InteractionViewModel>(R.layout.fragment_f
     }
 
     private fun openFailureScreen() {
-
-        findNavController().navigate(FoundSongFragmentDirections.actionFragmentFoundSongToFailureFragment(),
-            NavOptions.Builder().setPopUpTo(R.id.fragmentFoundSong, true).build())
+        findNavController().navigate(FoundSongFragmentDirections.actionFragmentFoundSongToFailureFragment())
     }
 
     private fun openSuccessScreen() {
-
-        findNavController().navigate(FoundSongFragmentDirections.actionFragmentFoundSongToSuccessFragment(),
-           NavOptions.Builder().setPopUpTo(R.id.fragmentFoundSong, true).build()
-        )
+        findNavController().navigate(FoundSongFragmentDirections.actionFragmentFoundSongToSuccessFragment())
     }
 
     private fun openRetryScreen() {

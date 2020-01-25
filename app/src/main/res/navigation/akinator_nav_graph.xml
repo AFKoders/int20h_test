@@ -29,7 +29,7 @@
         android:id="@+id/fragmentHistory"
         android:name="com.afkoders.musicakinator.presentation.history.HistoryFragment"
         android:label="FragmentHistory"
-        tools:layout="@layout/fragment_history" >
+        tools:layout="@layout/fragment_history">
         <action
             android:id="@+id/action_fragmentHistory_to_fragmentSearch"
             app:destination="@id/fragmentSearch"
@@ -47,7 +47,8 @@
             app:enterAnim="@anim/enter_from_right"
             app:exitAnim="@anim/exit_to_left"
             app:popEnterAnim="@anim/enter_alpha"
-            app:popExitAnim="@anim/exit_alpha" />
+            app:popExitAnim="@anim/exit_alpha"
+            app:popUpTo="@id/fragmentSearch"/>
         <action
             android:id="@+id/action_fragmentFoundSong_to_retryFragment"
             app:destination="@id/retryFragment"
@@ -61,7 +62,8 @@
             app:enterAnim="@anim/enter_from_right"
             app:exitAnim="@anim/exit_to_left"
             app:popEnterAnim="@anim/enter_alpha"
-            app:popExitAnim="@anim/exit_alpha" />
+            app:popExitAnim="@anim/exit_alpha"
+            app:popUpTo="@id/fragmentSearch" />
     </fragment>
 
     <fragment
