@@ -78,11 +78,11 @@
 </p>
 
 10. Знайдіть 45 строку у файлі або натисніть комбінацію `CMD + L` (`Ctrl + G` для Windows/Linux).
-11. Впевняться що ви знайшли потрібну строку з назвами `AUDD_API_TOKEN`.
+11. Впевніться що ви знайшли потрібну строку з назвами `AUDD_API_TOKEN`.
 
 <p align="center">
 	<kbd>
- 		<img src="https://github.com/AFKoders/int20h_test/blob/readme/assets/6.png" alt="6" width="600" height="180"/>
+ 		<img src="https://github.com/AFKoders/int20h_test/blob/readme/assets/6.png" alt="6" width="720" height="100"/>
 	</kbd>
 </p>
 
@@ -90,7 +90,7 @@
 
 <p align="center">
 	<kbd>
- 		<img src="https://github.com/AFKoders/int20h_test/blob/readme/assets/7.png" alt="7" width="600" height="180"/>
+ 		<img src="https://github.com/AFKoders/int20h_test/blob/readme/assets/7.png" alt="7" width="720" height="100"/>
 	</kbd>
 </p>
 
@@ -98,7 +98,7 @@
 
 <p align="center">
 	<kbd>
- 		<img src="https://github.com/AFKoders/int20h_test/blob/readme/assets/8.png" alt="8" width="600" height="170"/>
+ 		<img src="https://github.com/AFKoders/int20h_test/blob/readme/assets/8.png" alt="8" width="720" height="110"/>
 	</kbd>
 </p>
 
