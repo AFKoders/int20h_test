@@ -9,7 +9,7 @@
 .cxx
 
 # Built application files
-*.apk
+.apk
 *.ap_
 *.aab
 
@@ -64,11 +64,5 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 
-app/smarthome.jks
-app/fabric.properties
-app/release/
-
 .DS_Store
-app/.DS_Store
-app/fabric.properties
-app/keystore/
+app/release

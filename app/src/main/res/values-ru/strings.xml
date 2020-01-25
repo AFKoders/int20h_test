@@ -11,11 +11,11 @@
     <!-- Search screen -->
     <string name="label_ask_me">Спроси меня</string>
     <string name="label_whos_singing">Что за песня?</string>
-    <string name="placeholder_whos_singing">Нажмите, чтобы ввести текст песни</string>
+    <string name="placeholder_whos_singing">Нажми, чтобы ввести текст песни</string>
 
     <!-- Loading screen -->
     <string name="label_try_to_find">Пытаюсь найти</string>
-    <string name="label_the_best_results">лучшие\nрезультаты</string>
+    <string name="label_the_best_results">Лучшие\nРезультаты</string>
 
     <!-- Search Result screen -->
     <string name="label_preview_recent_results">Последние результаты</string>
@@ -36,9 +36,9 @@
     <string name="title_retry">Уупс…</string>
     <string name="label_retry">Я ошибся</string>
     <plurals name="interaction_retry">
-        <item quantity="one">Но у меня еще %d с попытка</item>
-        <item quantity="few">Но у меня еще %d с попытки</item>
-        <item quantity="many">Но у меня еще %d с попыток</item>
+        <item quantity="one">Но у меня еще %d попытка</item>
+        <item quantity="few">Но у меня еще %d попытки</item>
+        <item quantity="many">Но у меня еще %d попыток</item>
     </plurals>
 
     <!-- History -->
