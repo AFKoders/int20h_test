@@ -19,7 +19,6 @@
 
         <activity
             android:name=".presentation.MainActivity"
-            android:screenOrientation="sensorPortrait"
             android:theme="@style/Fullscreen"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden">
 
