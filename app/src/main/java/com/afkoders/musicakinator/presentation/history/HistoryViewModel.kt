@@ -16,8 +16,16 @@ class HistoryViewModel @Inject constructor(
     @SchedulerIO private val schedulerIO: Scheduler
 ) : ViewModel() {
 
-    fun getHistoryPreferences(): Single<List<History>> =
+    fun getHistoryPreferences(): Single<ArrayList<History>> =
         Single.just(historyPrefs.history)
+            .map {
+                it.reverse()
+                it
+            }
             .subscribeOn(schedulerIO)
             .observeOn(schedulerUI)
+
+    fun clearHistory() {
+        historyPrefs.clear()
+    }
 }

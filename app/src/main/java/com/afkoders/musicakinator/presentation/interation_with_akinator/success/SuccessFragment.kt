@@ -6,9 +6,9 @@ import androidx.lifecycle.ViewModelProviders
 import com.afkoders.musicakinator.R
 import com.afkoders.musicakinator.presentation.BaseFragment
 import com.afkoders.musicakinator.presentation.interation_with_akinator.InteractionViewModel
-import com.bumptech.glide.Glide
 import com.afkoders.musicakinator.utils.extensions.finish
 import com.afkoders.musicakinator.utils.extensions.startIntentOrShowAlert
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.fragment_result_success.*
 
 

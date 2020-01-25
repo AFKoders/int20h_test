@@ -26,12 +26,12 @@ class HistoryPrefs constructor(context: Context, val gson: Gson) {
         history = newList
     }
 
-    var history: List<History>
+    var history: ArrayList<History>
         set(value) = prefs.edit().putString(HISTORY_LIST, gson.toJson(value)).apply()
         get() = gson.fromJson(
             prefs.getString(HISTORY_LIST, ""),
             object : TypeToken<List<History>>() {}.type
-        )?: arrayListOf()
+        ) ?: arrayListOf()
 
     fun clear() {
         prefs.edit().clear().apply()
