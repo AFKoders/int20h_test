@@ -2,7 +2,9 @@ package com.afkoders.musicakinator.utils.extensions
 
 import android.app.Activity
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import android.view.ViewConfiguration
 
 
 inline fun <reified T : Activity> Activity.openActivity(initializer: Intent.() -> Unit = {}) {
@@ -20,4 +22,23 @@ inline fun <reified T : Activity> Activity.openActivityForResult(
         requestCode,
         options
     )
+}
+
+fun Activity.hasNavbar(): Boolean {
+    if (Build.FINGERPRINT.startsWith("generic"))
+        return true
+
+    val id = resources.getIdentifier("config_showNavigationBar", "bool", "android")
+    return id > 0 && resources.getBoolean(id)
+}
+
+fun Activity.getStatusBarHeight(): Int {
+    val resourceId = resources.getIdentifier("status_bar_height", "dimen", "android")
+    return if (resourceId > 0) resources.getDimensionPixelSize(resourceId) else 0
+}
+
+fun Activity.getNavigationBarHeight(): Int {
+    val hasMenuKey = ViewConfiguration.get(this).hasPermanentMenuKey()
+    val resourceId = resources.getIdentifier("navigation_bar_height", "dimen", "android")
+    return if (resourceId > 0 && !hasMenuKey) resources.getDimensionPixelSize(resourceId) else 0
 }

@@ -1,15 +1,18 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:windowTranslucentStatus">true</item>
-        <item name="android:statusBarColor">#00000000</item>
-        <item name="android:windowFullscreen">false</item>
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:fitsSystemWindows">false</item>
+    </style>
+
+    <style name="Fullscreen" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@android:color/transparent</item>
+        <item name="android:windowTranslucentStatus" tools:targetApi="kitkat">true</item>
+        <item name="android:windowTranslucentNavigation" tools:targetApi="kitkat">true</item>
     </style>
 
     <style name="TextView.Primary.Text" parent="@style/Widget.AppCompat.TextView">
@@ -31,7 +34,7 @@
     <style name="TextView.Lyrics.Text" parent="@style/Widget.AppCompat.TextView">
         <item name="android:textSize">@dimen/lyrics_text_size</item>
         <item name="android:textColor">@color/secondaryTextColor</item>
-        <item name="android:fontFamily">@font/maven_pro_regular</item>
+        <item name="android:fontFamily">@font/maven_pro_medium</item>
         <item name="android:textAlignment">center</item>
         <item name="android:gravity">center</item>
     </style>
@@ -70,23 +73,12 @@
         <item name="rippleColor">@color/ctaSecondaryRippleColor</item>
     </style>
 
-    <style name="EditText" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="android:textSize">@dimen/secondary_text_size</item>
-        <item name="android:fontFamily">@font/maven_pro_bold</item>
-        <item name="android:textColor">@color/inputTextColor</item>
+    <style name="EditText" parent="@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
         <item name="boxBackgroundColor">@color/colorAccent</item>
-        <item name="boxStrokeColor">@color/colorAccent</item>
         <item name="boxCornerRadiusBottomEnd">@dimen/input_corner_radius</item>
         <item name="boxCornerRadiusBottomStart">@dimen/input_corner_radius</item>
         <item name="boxCornerRadiusTopEnd">@dimen/input_corner_radius</item>
         <item name="boxCornerRadiusTopStart">@dimen/input_corner_radius</item>
-        <item name="hintTextAppearance">@style/EditText.Hint.Appearance</item>
-    </style>
-
-    <style name="EditText.Hint.Appearance" parent="TextAppearance.AppCompat">
-        <item name="android:textSize">@dimen/secondary_text_size</item>
-        <item name="android:fontFamily">@font/maven_pro_bold</item>
-        <item name="android:textColor">@color/placeholderTextColor</item>
     </style>
 
     <style name="ImageView">

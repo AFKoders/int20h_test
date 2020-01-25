@@ -10,7 +10,7 @@ import com.google.gson.reflect.TypeToken
  */
 
 
-class HistoryPrefs constructor(context: Context, val gson: Gson) {
+class HistoryPrefs constructor(context: Context, private val gson: Gson) {
 
     companion object {
         private const val HISTORY_PREFS = "history_prefs"
@@ -21,17 +21,17 @@ class HistoryPrefs constructor(context: Context, val gson: Gson) {
         context.getSharedPreferences(HISTORY_PREFS, Context.MODE_PRIVATE)
 
     fun addToHistory(track: History) {
-        val newList = history as ArrayList
+        val newList = history
         newList.add(track)
         history = newList
     }
 
-    var history: ArrayList<History>
+    var history: MutableList<History>
         set(value) = prefs.edit().putString(HISTORY_LIST, gson.toJson(value)).apply()
         get() = gson.fromJson(
             prefs.getString(HISTORY_LIST, ""),
             object : TypeToken<List<History>>() {}.type
-        ) ?: arrayListOf()
+        ) ?: mutableListOf()
 
     fun clear() {
         prefs.edit().clear().apply()

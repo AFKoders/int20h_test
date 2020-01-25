@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.history_item.view.*
  */
 
 class HistoryAdapter(
-    private val items: ArrayList<History>,
+    private val items: MutableList<History>,
     private val context: Context
 ) : RecyclerView.Adapter<ViewHolder>() {
 
@@ -28,10 +28,11 @@ class HistoryAdapter(
         return items.size
     }
 
-    fun clear(){
+    fun clear() {
         items.clear()
         notifyDataSetChanged()
     }
+
     override fun getItemId(position: Int): Long {
         return position.toLong()
     }
