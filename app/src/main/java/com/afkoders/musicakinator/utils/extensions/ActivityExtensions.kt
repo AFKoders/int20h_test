@@ -25,6 +25,10 @@ inline fun <reified T : Activity> Activity.openActivityForResult(
 }
 
 fun Activity.hasNavbar(): Boolean {
+
+    // FIXME: This function and simular to this does not work.
+    // TODO: provide method that would fix bottom padding on devices with hardware buttons.
+
     if (Build.FINGERPRINT.startsWith("generic"))
         return true
 
